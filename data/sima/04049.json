@@ -1,0 +1,1014 @@
+{
+    "code": "04049",
+    "name": "Garrucha",
+    "sections": [
+        {
+            "name": "Territorio",
+            "indicators": [
+                {
+                    "section": "Territorio",
+                    "name": "Extensión superficial",
+                    "value": [
+                        7.0,
+                        76.0
+                    ],
+                    "year": "2019",
+                    "unit": "Km2"
+                },
+                {
+                    "section": "Territorio",
+                    "name": "Perímetro",
+                    "value": [
+                        17.339,
+                        61.0
+                    ],
+                    "year": "2019",
+                    "unit": "m"
+                },
+                {
+                    "section": "Territorio",
+                    "name": "Distancia a la capital",
+                    "value": [
+                        82.0,
+                        5.0
+                    ],
+                    "year": "2019",
+                    "unit": "Km"
+                },
+                {
+                    "section": "Territorio",
+                    "name": "Altitud sobre el nivel del mar",
+                    "value": 7,
+                    "year": "2019",
+                    "unit": "m"
+                },
+                {
+                    "section": "Territorio",
+                    "name": "Coordenadas del núcleo principal",
+                    "value": [
+                        37.18,
+                        -1.822
+                    ],
+                    "year": "2022",
+                    "unit": "grados"
+                },
+                {
+                    "section": "Territorio",
+                    "name": "Número de núcleos que componen el municipio",
+                    "value": 1,
+                    "year": "2025",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Población",
+            "indicators": [
+                {
+                    "section": "Población",
+                    "name": "Población total",
+                    "value": 10823,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Población. Hombres",
+                    "value": 5651,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Población. Mujeres",
+                    "value": 5172,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Población en núcleos",
+                    "value": 10809,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Población en diseminados",
+                    "value": 14,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Edad media",
+                    "value": [
+                        40.0,
+                        4.0
+                    ],
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Porcentaje de población menor de 20 años",
+                    "value": [
+                        21.0,
+                        4.0
+                    ],
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Porcentaje de población mayor de 65 años",
+                    "value": [
+                        14.0,
+                        3.0
+                    ],
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Variación relativa de la población en diez años",
+                    "value": [
+                        22.0,
+                        8.0
+                    ],
+                    "year": "2014-2024",
+                    "unit": "%"
+                }
+            ]
+        },
+        {
+            "name": "Población",
+            "indicators": [
+                {
+                    "section": "Población",
+                    "name": "Número de extranjeros",
+                    "value": 3210,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Principal procedencia de los extranjeros residentes",
+                    "value": "Perú",
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Porcentaje que representa respecto total de extranjeros",
+                    "value": [
+                        15.0,
+                        1.0
+                    ],
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Emigraciones",
+                    "value": 1031,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Inmigraciones",
+                    "value": 1307,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Nacimientos",
+                    "value": 92,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Defunciones",
+                    "value": 62,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Población",
+                    "name": "Matrimonios",
+                    "value": 49,
+                    "year": "2024",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Sociedad",
+            "indicators": [
+                {
+                    "section": "Sociedad",
+                    "name": "Centros de Infantil. Curso 2023-2024",
+                    "value": 4,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Centros de Primaria. Curso 2023-2024",
+                    "value": 2,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Centros de Enseñanza Secundaria Obligatoria. Curso 2023-2024",
+                    "value": 1,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Centros de Bachillerato. Curso 2023-2024",
+                    "value": 1,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Centros C.F. de Grado Medio. Curso 2023-2024",
+                    "value": 0,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Centros C.F. de Grado Superior. Curso 2023-2024",
+                    "value": 0,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Centros de educación de adultos. Curso 2023-2024",
+                    "value": 2,
+                    "year": null,
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Sociedad",
+            "indicators": [
+                {
+                    "section": "Sociedad",
+                    "name": "Bibliotecas públicas",
+                    "value": 1,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Centros de salud",
+                    "value": 1,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Consultorios",
+                    "value": 0,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Viviendas familiares principales",
+                    "value": 3737,
+                    "year": "2021",
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Transacciones inmobiliarias. Vivienda nueva",
+                    "value": 110,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Transacciones inmobiliarias. Vivienda segunda mano",
+                    "value": 246,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Sociedad",
+                    "name": "Número de pantallas de cine",
+                    "value": 1,
+                    "year": "2025",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Elecciones",
+            "indicators": [
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones generales",
+                    "value": null,
+                    "year": "2023",
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones Generales. Censo electoral",
+                    "value": 5922,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones Generales. Abstenciones",
+                    "value": 1941,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "PP",
+                    "value": 1566,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "PSOE",
+                    "value": 1282,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "VOX",
+                    "value": 767,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "SUMAR",
+                    "value": 253,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "PACMA",
+                    "value": 24,
+                    "year": null,
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Elecciones",
+            "indicators": [
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones autonómicas",
+                    "value": null,
+                    "year": "2022",
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones al Parlamento. Censo electoral",
+                    "value": 5859,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones al Parlamento. Abstenciones",
+                    "value": 2660,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "PP",
+                    "value": 1468,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "PSOE-A",
+                    "value": 816,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "VOX",
+                    "value": 569,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "PorA",
+                    "value": 148,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "ADELANTE ANDALUCÍA-ANDALUCISTAS",
+                    "value": 53,
+                    "year": null,
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Elecciones",
+            "indicators": [
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones locales",
+                    "value": null,
+                    "year": "2023",
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones Locales. Censo electoral",
+                    "value": 6238,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "Elecciones Locales. Abstenciones",
+                    "value": 2019,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "PSOE",
+                    "value": 1656,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "PP",
+                    "value": 1549,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "CON ANDALUCÍA",
+                    "value": 449,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "UCIN",
+                    "value": 245,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Elecciones",
+                    "name": "VOX",
+                    "value": 228,
+                    "year": null,
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Agricultura",
+            "indicators": [
+                {
+                    "section": "Agricultura",
+                    "name": "Cultivos herbáceos",
+                    "value": null,
+                    "year": "2023",
+                    "unit": null
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Superficie dedicada a cultivos herbáceos",
+                    "value": 41,
+                    "year": null,
+                    "unit": "ha"
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Principal cultivo herbáceo de regadío",
+                    "value": "Melón",
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Principal cultivo herbáceo de regadío",
+                    "value": 12,
+                    "year": null,
+                    "unit": "ha"
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Principal cultivo herbáceo de secano",
+                    "value": "-",
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Principal cultivo herbáceo de secano",
+                    "value": "-",
+                    "year": null,
+                    "unit": "ha"
+                }
+            ]
+        },
+        {
+            "name": "Agricultura",
+            "indicators": [
+                {
+                    "section": "Agricultura",
+                    "name": "Cultivos leñosos",
+                    "value": null,
+                    "year": "2023",
+                    "unit": null
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Superficie dedicada a cultivos leñosos",
+                    "value": 23,
+                    "year": null,
+                    "unit": "ha"
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Principal cultivo leñoso de regadío",
+                    "value": "Olivar aceituna de aceite",
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Principal cultivo leñoso de regadío",
+                    "value": 20,
+                    "year": null,
+                    "unit": "ha"
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Principal cultivo leñoso de secano",
+                    "value": "Higuera",
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Agricultura",
+                    "name": "Principal cultivo leñoso de secano",
+                    "value": 1,
+                    "year": null,
+                    "unit": "ha"
+                }
+            ]
+        },
+        {
+            "name": "Establecimientos con actividad económica. 2024",
+            "indicators": [
+                {
+                    "section": "Establecimientos con actividad económica. 2024",
+                    "name": "Sin asalariados",
+                    "value": 440,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Establecimientos con actividad económica. 2024",
+                    "name": "Hasta 5 asalariados",
+                    "value": 255,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Establecimientos con actividad económica. 2024",
+                    "name": "Entre 6 y 19 asalariados",
+                    "value": 31,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Establecimientos con actividad económica. 2024",
+                    "name": "De 20 y más asalariados",
+                    "value": 19,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Establecimientos con actividad económica. 2024",
+                    "name": "Total establecimientos",
+                    "value": 745,
+                    "year": null,
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Principales actividades económicas. 2024",
+            "indicators": [
+                {
+                    "section": "Principales actividades económicas. 2024",
+                    "name": "Sección G. Comercio al por mayor y al por menor",
+                    "value": 196,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Principales actividades económicas. 2024",
+                    "name": "Sección I. Hostelería",
+                    "value": 87,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Principales actividades económicas. 2024",
+                    "name": "Sección F. Construcción",
+                    "value": 79,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Principales actividades económicas. 2024",
+                    "name": "Sección S. Otros servicios",
+                    "value": 68,
+                    "year": null,
+                    "unit": null
+                },
+                {
+                    "section": "Principales actividades económicas. 2024",
+                    "name": "Sección N. Actividades administrativas y servicios auxiliares",
+                    "value": 58,
+                    "year": null,
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Transportes",
+            "indicators": [
+                {
+                    "section": "Transportes",
+                    "name": "Parque de vehículos. Turismos",
+                    "value": 5263,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Transportes",
+                    "name": "Autorizaciones de transporte: taxis",
+                    "value": 6,
+                    "year": "2017",
+                    "unit": null
+                },
+                {
+                    "section": "Transportes",
+                    "name": "Autorizaciones de transporte: mercancías",
+                    "value": 70,
+                    "year": "2017",
+                    "unit": null
+                },
+                {
+                    "section": "Transportes",
+                    "name": "Autorizaciones de transporte: viajeros",
+                    "value": 6,
+                    "year": "2017",
+                    "unit": null
+                },
+                {
+                    "section": "Transportes",
+                    "name": "Vehículos matriculados",
+                    "value": 196,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Transportes",
+                    "name": "Vehículos turismos matriculados",
+                    "value": 131,
+                    "year": "2025",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Otros indicadores",
+            "indicators": [
+                {
+                    "section": "Otros indicadores",
+                    "name": "Oficinas de entidades de crédito",
+                    "value": 6,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Otros indicadores",
+                    "name": "Consumo de energía eléctrica  (Endesa)",
+                    "value": 24304,
+                    "year": "2025",
+                    "unit": "MWh"
+                },
+                {
+                    "section": "Otros indicadores",
+                    "name": "Consumo de energía eléctrica residencial  (Endesa)",
+                    "value": 16297,
+                    "year": "2025",
+                    "unit": "MWh"
+                }
+            ]
+        },
+        {
+            "name": "Turismo",
+            "indicators": [
+                {
+                    "section": "Turismo",
+                    "name": "Hoteles",
+                    "value": "*",
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Turismo",
+                    "name": "Hostales y pensiones",
+                    "value": 5,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Turismo",
+                    "name": "Plazas en hoteles",
+                    "value": "*",
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Turismo",
+                    "name": "Plazas en hostales y pensiones",
+                    "value": 248,
+                    "year": "2024",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Patrimonio",
+            "indicators": [
+                {
+                    "section": "Patrimonio",
+                    "name": "Bienes inmuebles",
+                    "value": 8,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Patrimonio",
+                    "name": "Bienes muebles",
+                    "value": 0,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Patrimonio",
+                    "name": "Bienes inmateriales",
+                    "value": 3,
+                    "year": "2025",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Mercado de trabajo",
+            "indicators": [
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Paro registrado. Mujeres",
+                    "value": 340,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Paro registrado. Hombres",
+                    "value": 202,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Paro registrado. Extranjeros",
+                    "value": 106,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Tasa municipal de desempleo",
+                    "value": [
+                        12.0,
+                        2.0
+                    ],
+                    "year": "2025",
+                    "unit": "%"
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Contratos registrados. Mujeres",
+                    "value": 686,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Contratos registrados. Hombres",
+                    "value": 789,
+                    "year": "2025",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Mercado de trabajo",
+            "indicators": [
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Contratos registrados. Indefinidos",
+                    "value": 786,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Contratos registrados. Temporales",
+                    "value": 689,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Contratos registrados. Extranjeros",
+                    "value": 428,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Trabajadores eventuales agrarios subsidiados. Mujeres",
+                    "value": 2,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Mercado de trabajo",
+                    "name": "Trabajadores eventuales agrarios subsidiados. Hombres",
+                    "value": 0,
+                    "year": "2025",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Presupuesto de las Corporaciones locales",
+            "indicators": [
+                {
+                    "section": "Presupuesto de las Corporaciones locales",
+                    "name": "Presupuesto liquidado de ingresos",
+                    "value": 7769631,
+                    "year": "2024",
+                    "unit": "euros"
+                },
+                {
+                    "section": "Presupuesto de las Corporaciones locales",
+                    "name": "Presupuesto liquidado de gastos",
+                    "value": 7065076,
+                    "year": "2024",
+                    "unit": "euros"
+                },
+                {
+                    "section": "Presupuesto de las Corporaciones locales",
+                    "name": "Ingresos por habitante",
+                    "value": 733,
+                    "year": "2024",
+                    "unit": "euros"
+                },
+                {
+                    "section": "Presupuesto de las Corporaciones locales",
+                    "name": "Gastos por habitante",
+                    "value": 666,
+                    "year": "2024",
+                    "unit": "euros"
+                }
+            ]
+        },
+        {
+            "name": "IRPF",
+            "indicators": [
+                {
+                    "section": "IRPF",
+                    "name": "Número de declaraciones",
+                    "value": 4863,
+                    "year": "2023",
+                    "unit": null
+                },
+                {
+                    "section": "IRPF",
+                    "name": "Renta bruta media",
+                    "value": "21509",
+                    "year": "2023",
+                    "unit": null
+                },
+                {
+                    "section": "IRPF",
+                    "name": "Renta disponible media",
+                    "value": "18207",
+                    "year": "2023",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Catastro inmobiliario",
+            "indicators": [
+                {
+                    "section": "Catastro inmobiliario",
+                    "name": "IBI de naturaleza urbana. Número de recibos",
+                    "value": 11507,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Catastro inmobiliario",
+                    "name": "IBI de naturaleza rústica. Número de recibos",
+                    "value": 95,
+                    "year": "2024",
+                    "unit": null
+                },
+                {
+                    "section": "Catastro inmobiliario",
+                    "name": "Número de parcelas catastrales: Solares",
+                    "value": 411,
+                    "year": "2025",
+                    "unit": null
+                },
+                {
+                    "section": "Catastro inmobiliario",
+                    "name": "Número de parcelas catastrales: Parcelas edificadas",
+                    "value": 1755,
+                    "year": "2025",
+                    "unit": null
+                }
+            ]
+        },
+        {
+            "name": "Impuesto de Actividades Económicas",
+            "indicators": [
+                {
+                    "section": "Impuesto de Actividades Económicas",
+                    "name": "Situaciones de alta en actividades empresariales",
+                    "value": 983,
+                    "year": "2019",
+                    "unit": null
+                },
+                {
+                    "section": "Impuesto de Actividades Económicas",
+                    "name": "Situaciones de alta en actividades profesionales",
+                    "value": 94,
+                    "year": "2019",
+                    "unit": null
+                },
+                {
+                    "section": "Impuesto de Actividades Económicas",
+                    "name": "Situaciones de alta en actividades artísticas",
+                    "value": 1,
+                    "year": "2019",
+                    "unit": null
+                }
+            ]
+        }
+    ]
+}
