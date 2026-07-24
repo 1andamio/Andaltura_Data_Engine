@@ -1,0 +1,645 @@
+ï»¿ <!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>SIMA - El Rubio (Sevilla) | Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a</title>
+
+    <!-- meta -->
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=Edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+
+    <meta name='Description' content='Principales indicadores de territorio, poblaci&oacute;n, sociedad, econom&iacute;a, mercado de trabajo y hacienda para el municipio El Rubio (Sevilla)'>
+    <meta name='viewport' content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width'>
+    <meta http-equiv='X-UA-Compatible' content='IE=Edge'>
+
+    
+    <!-- estilos genericos -->
+    <style>
+      @import '/portal/css/estiloCabecera.css';
+      @import '/portal/css/estiloGenerico.css';
+      @import '/portal/css/estiloContenido.css';
+      @import '/portal/css/colorEstadistica.css';
+      @import '/portal/css/recursos/imprimir.css' print;
+    </style>
+    
+    <!-- link -->
+    <link rel="shortcut icon" href="/portal/images/cabecera/logo_mini.png" type="image/png" />
+
+    <!-- CSS Jquery -->
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/jquery.mobile.structure-1.4.5.min.css' />
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/jquery.mobile.icons.min.css' />
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/ieca-mobile.min.css' />
+    <!-- CSS mapea -->
+    <link rel='stylesheet' href='https://mapea4-sigc.juntadeandalucia.es/assets/css/mapea.ol.min.css' />
+    <link rel='stylesheet' type='text/css' href='css/custom.css'>
+
+    
+    <!-- carga Jquery -->
+    <script src='/portal/js/jquery/jquery.min.js'></script>
+    <script src='/portal/js/jquery/jquery-ui.min.js'></script>
+    <link rel='stylesheet' href='/portal/js/jquery/themes/jquery-ui.min.css'>
+    
+    <!-- webComponents -->
+    <script src='/portal/wc/matter-header.js'></script>
+    <script src='/portal/wc/matter-footer.js'></script>
+    
+
+    <!-- adicional -->
+    <script src='/portal/js/cabecera.js'></script>
+
+        <script type='text/javascript'>
+          //evitamos el efecto de jQuery Mobile sobre ciertos elementos
+          $(function(){
+            $('a').attr('data-ajax','false');
+            $('#minibuscador input').attr('data-role','none');
+          });
+        </script>
+        <!-- js jQuery -->
+        <script type='text/javascript' src='/portal/js/jquery/jquery.mobile.min.js'></script>
+        <!-- js mapea -->
+        <script type='text/javascript' src='https://mapea4-sigc.juntadeandalucia.es/js/mapea.ol.min.js'></script>
+        <script type='text/javascript' src='https://mapea4-sigc.juntadeandalucia.es/js/configuration.js'></script>
+        <!-- js D3pie -->
+        <!-- d3pie: MIT License. Copyright (c) 2014-2015 Benjamin Keen -->
+        <script src='/portal/js/d3/d3.min.js'></script>
+        <script src='/portal/js/d3/d3pie.min.js'></script>
+
+  </head>
+
+  <body  >
+    
+    <!-- cabecera portal DEGA -->
+    <div id='cabecera-dega'>
+      <matter-header data='https://ws089.juntadeandalucia.es/institutodeestadisticaycartografia/dega/sites/default/files/json/cabecera-clasica.json'></matter-header>
+    </div>
+    <!-- cuerpo de la pagina --->
+    <div id='contenedor_centrado'>
+      <div id='contenedor'>
+
+      ï»¿            <!-- cuerpo-->
+            <div data-role="main" class="ui-content" id='inicio'>
+            
+              <h1 class='titPag'>Andaluc&iacute;a pueblo a pueblo - Fichas Municipales&nbsp;&nbsp;<img src='/portal/images/images/andaluciasemueveconeuropa.png' alt='Andaluc&iacute;a se mueve con Europa'></h1>
+              <h2 id='fuente_ieca' class='subTitPag'><a href='http://www.juntadeandalucia.es/institutodeestadisticaycartografia/' target='_top'>Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a</a></h2>
+            
+              <!-- menu de contenidos -->
+              <div data-role="panel" data-display="overlay" id="panelmuni" class='no_imprimir'>
+                <h4>Ver municipios de:</h4>
+                <br>
+                <ul data-role='listview'>
+                    <li><a href='provincia.htm?prov=04'>Almer&iacute;a</a></li>
+                    <li><a href='provincia.htm?prov=11'>C&aacute;diz</a></li>
+                    <li><a href='provincia.htm?prov=14'>C&oacute;rdoba</a></li>
+                    <li><a href='provincia.htm?prov=18'>Granada</a></li>
+                    <li><a href='provincia.htm?prov=21'>Huelva</a></li>
+                    <li><a href='provincia.htm?prov=23'>Ja&eacute;n</a></li>
+                    <li><a href='provincia.htm?prov=29'>M&aacute;laga</a></li>
+                    <li><a href='provincia.htm?prov=41'>Sevilla</a></li>
+                </ul>
+                <br>
+                <h4>M&aacute;s informaci&oacute;n</h4>
+                <div data-role="controlgroup" id="opcsima">
+                  <a href='https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/informe/anual?CodOper=b3_151&idNode=23204' data-role="button" class="ui-btn ui-corner-all" data-mini="true">Banco de datos SIMA</a>
+                  <a href='datos/smex99.xls' data-role="button" class="ui-btn ui-corner-all" data-mini="true">Descarga de datos</a>
+                </div>
+                
+                <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right">Cerrar</a>
+              </div>
+              
+              <!-- titulo -->
+              <div id='encabezado_ficha'>
+                <div class='mini'><a href="#panelmuni" data-role="button" class="ui-btn ui-icon-bars ui-corner-all ui-btn-icon-notext ui-btn-inline no_imprimir" alt='Cambiar provincia'>&nbsp;</a>Provincia de <a href='smind41.htm'>Sevilla</a>&nbsp;&nbsp;</div>
+                <hr>
+                <h3 class='nomMuni'><a href='infmuns.htm?CodMuni=41084'>El Rubio</a></h3>
+                <div class='verNucleos no_imprimir'><a href='nucleos.htm?CodMuni=41084'>Ver n&uacute;cleos de poblaci&oacute;n</a></div>
+              </div>
+
+              <!--  ..........  TERRITORIO  ..........  -->
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="location" data-expanded-icon="location" id='TER' class="openMe">
+              <h4>Territorio</h4>
+                 <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <div id='tblTERR'>
+                      <table class='datos' summary='Territorio'>
+                        <tr class='f1'><td class='t1c1'><a href='info.htm?f=a01'>Extensi&oacute;n superficial (Km2). 2019</a></td><td class='c3'>20,8</td></tr>
+                        <tr class='f2'><td class='t1c1'><a href='info.htm?f=a05'>Per&iacute;metro (m). 2019</a></td><td class='c3'>23.830,35</td></tr>
+                        <tr class='f2'><td class='t1c1'><a href='info.htm?f=a02'>Distancia a la capital (Km). 2019</a></td><td class='c3'>100,1</td></tr>
+                        <tr class='f1'><td class='t1c1'><a href='info.htm?f=a03'>Altitud sobre el nivel del mar (m). 2019</a></td><td class='c3'>204</td></tr>
+                        <tr class='f2'><td class='t1c1'><a href='info.htm?f=a06'>Coordenadas del n&uacute;cleo principal (grados). 2022</a></td><td class='c3'>37.356, -4.989</td></tr>
+                        <tr class='f1'><td class='t1c1'><a href='info.htm?f=a04'>N&uacute;mero de n&uacute;cleos que componen el municipio. 2025</a></td><td class='c3'>1</td></tr>
+                      </table>
+                    </div> <!-- id='tblTERR' -->
+                  </div>
+                  <div class="ui-block-b">
+                  
+                    <!-- bloque MAPEA -->
+                    <div id="mapa" class='mapea_tipo_3'></div>
+                    <script type='text/javascript'>
+                      mapajs = M.map({
+                        container: 'mapa',
+                        controls: ['panzoombar','layerswitcher','mouse','navtoolbar'],
+                        wmcfiles: ['https://www.juntadeandalucia.es/institutodeestadisticaycartografia/WMC/public/WMC_basico.xml*Contexto'],
+                        projection:'EPSG:25830*m',
+                        layers:['KML*El Rubio*http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/nucleos/contornos/*c41084.kml*false'],
+                        center:[322078,4134620],
+                        zoom:6,
+                      });
+                      // Layer grid de poblaciÃ³n
+                      let gridpob = new M.layer.WMS({
+                        url: "http://www.juntadeandalucia.es/institutodeestadisticaycartografia/geoserver-ieca/grid/wms?",
+                        name: "gridp_250",
+                        legend: "Grid de PoblaciÃ³n",
+                        transparent: true,
+                        tiled: true,
+                      });
+
+                      //asigno transparencia y visibilidad al layer del grid de poblaciÃ³n.
+                      gridpob.setOpacity(0.5);
+                      gridpob.setVisible(false);
+
+                      //AÃ±ado los layers creados anteriormente
+                      mapajs.addWMS([gridpob]);
+                    </script>
+                    <!--fin bloque MAPEA -->
+                    
+                  </div>
+                </div>
+              </div>
+
+              <!--  ..........  POBLACION  ..........  -->
+
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="user" data-expanded-icon="user" id='POB' class="openMe">
+              <h4>Poblaci&oacute;n</h4>
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <table class='datos' summary='Poblaci&oacute;n'>
+                      <tr class='f1'><td><a href='info.htm?f=b01'>Poblaci&oacute;n total. 2025</a></td><td class='c2'>3.296</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=b02'>Poblaci&oacute;n. Hombres. 2025</a></td><td class='c2'>1.632</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=b03'>Poblaci&oacute;n. Mujeres. 2025</a></td><td class='c2'>1.664</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=b04'>Poblaci&oacute;n en n&uacute;cleos. 2025</a></td><td class='c2'>3.287</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=b05'>Poblaci&oacute;n en diseminados. 2025</a></td><td class='c2'>9</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=b17'>Edad media. 2025</a></td><td class='c2'>45,0</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=b06'>Porcentaje de poblaci&oacute;n menor de 20 a&ntilde;os. 2025</a></td><td class='c2'>17,2</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=b07'>Porcentaje de poblaci&oacute;n mayor de 65 a&ntilde;os. 2025</a></td><td class='c2'>20,7</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=b08'>Variaci&oacute;n relativa de la poblaci&oacute;n en diez a&ntilde;os (%). 2014-2024</a></td><td class='c2'>-6,5</td></tr>
+                    </table>
+                  </div>
+                  <div class="ui-block-b">
+                    <table class='datos' summary='Poblaci&oacute;n2'>
+                      <tr class='f1'><td><a href='info.htm?f=b09'>N&uacute;mero de extranjeros. 2025</a></td><td class='c2'>108</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=b10'>Principal procedencia de los extranjeros residentes. 2025</a></td><td class='c2'>Nicaragua</td></tr>                    
+                      <tr class='f1'><td><a href='info.htm?f=b11'>Porcentaje que representa respecto total de extranjeros. 2025</a></td><td class='c2'>21,3</td></tr>                    
+                      <tr class='f2'><td><a href='info.htm?f=b12'>Emigraciones. 2024</a></td><td class='c2'>85</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=b13'>Inmigraciones. 2024</a></td><td class='c2'>76</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=b14'>Nacimientos. 2024</a></td><td class='c2'>34</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=b15'>Defunciones. 2024</a></td><td class='c2'>38</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=b16'>Matrimonios. 2024</a></td><td class='c2'>17</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!--  ..........  SOCIEDAD  ..........  -->
+
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="heart" data-expanded-icon="heart" id='SOC' class="openMe">
+                <h4>Sociedad</h4>
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <table class='datos' summary='Sociedad'>
+                      <tr class='f1'><td><a href='info.htm?f=c13'>Centros de Infantil. Curso 2023-2024</a></td><td class='c2'>2</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=c14'>Centros de Primaria. Curso 2023-2024</a></td><td class='c2'>1</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=c15'>Centros de Ense&ntilde;anza Secundaria Obligatoria. Curso 2023-2024</a></td><td class='c2'>1</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=c16'>Centros  de Bachillerato. Curso 2023-2024</a></td><td class='c2'>0</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=c17'>Centros  C.F. de Grado Medio. Curso 2023-2024</a></td><td class='c2'>0</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=c18'>Centros  C.F. de Grado Superior. Curso 2023-2024</a></td><td class='c2'>0</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=c03'>Centros de educaci&oacute;n de adultos. Curso 2023-2024</a></td><td class='c2'>3</td></tr>
+                    </table>
+                  </div>
+                  <div class="ui-block-b">
+                    <table class='datos' summary='Sociedad2'>
+                      <tr class='f1'><td><a href='info.htm?f=c04'>Bibliotecas p&uacute;blicas. 2024</a></td><td class='c2'>1</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=c05'>Centros de salud. 2025</a></td><td class='c2'>0</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=c06'>Consultorios. 2025</a></td><td class='c2'>1</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=c07'>Viviendas familiares principales. 2021</a></td><td class='c2'>1.345</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=c08'>Transacciones inmobiliarias. Vivienda nueva. 2024</a></td><td class='c2'>1</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=c09'>Transacciones inmobiliarias. Vivienda segunda mano. 2024</a></td><td class='c2'>32</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=c12'>N&uacute;mero de pantallas de cine. 2025</a></td><td class='c2'>0</td></tr>
+                    </table>
+                  </div>
+                </div>
+                  
+                <h4>Elecciones</h4>
+                <div class="ui-grid-a ui-responsive bloque">
+                  <div class="ui-block-a">
+                    <table class='datos' summary='Elecciones generales'>
+                      <thead><tr><th>Elecciones generales. 2023</th><td>&nbsp;</td></tr></thead>
+                       <tr class='f1'><td><a href='info.htm?f=o01'>Elecciones Generales. Censo electoral</a></td><td class='c2'>2.734</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=o07'>Elecciones Generales. Abstenciones</a></td><td class='c2'>759</td></tr>
+                       <tr><td colspan='2' style='padding-top: 10px'>Fuerzas mÃ¡s votadas</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=o02'>PSOE</a></td><td class='c2'> 812</td></tr>
+                                              <tr class='f2'><td><a href='info.htm?f=o03'>PP</a></td><td class='c2'> 635</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=o04'>VOX</a></td><td class='c2'> 247</td></tr>
+                                              <tr class='f2'><td><a href='info.htm?f=o05'>SUMAR</a></td><td class='c2'> 189</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=o06'>Resto</a></td><td class='c2'> 4</td></tr>
+                    </table>
+                  </div>
+                  <div class="ui-block-b">
+                    <table class='datos' summary='Elecciones autonÃ³micas'>
+                      <thead><tr><th >Elecciones autonÃ³micas. 2022</th><td>&nbsp;</td></tr></thead>
+                       <tr class='f1'><td><a href='info.htm?f=p01'>Elecciones al Parlamento. Censo electoral</a></td><td class='c2'>2.773</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=p07'>Elecciones al Parlamento. Abstenciones</a></td><td class='c2'>962</td></tr>
+                       <tr><td colspan='2' style='padding-top: 10px'>Fuerzas mÃ¡s votadas</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=p02'>PP </a></td><td class='c2'> 687</td></tr>
+                                              <tr class='f2'><td><a href='info.htm?f=p03'>PSOE-A </a></td><td class='c2'> 662</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=p04'>VOX </a></td><td class='c2'> 182</td></tr>
+                                              <tr class='f2'><td><a href='info.htm?f=p05'>PorA </a></td><td class='c2'> 110</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=p06'>ADELANTE ANDALUC&Iacute;A-ANDALUCISTAS </a></td><td class='c2'> 36</td></tr>
+                    </table>
+                  </div>
+                  <div class="ui-block-a">
+                    <table class='datos bloqueSeparado' summary='Elecciones locales'>
+                      <thead><tr><th>Elecciones locales. 2023</th><td>&nbsp;</td></tr></thead>
+                       <tr class='f1'><td><a href='info.htm?f=q01'>Elecciones Locales. Censo electoral</a></td><td class='c2'>2.749</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=q07'>Elecciones Locales. Abstenciones</a></td><td class='c2'>755</td></tr>
+                       <tr><td colspan='2' style='padding-top: 10px'>Fuerzas mÃ¡s votadas</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=q02'>PSOE</a></td><td class='c2'> 978</td></tr>
+                                              <tr class='f2'><td><a href='info.htm?f=q03'>PP</a></td><td class='c2'> 779</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=q04'>IXER</a></td><td class='c2'> 64</td></tr>
+                                              <tr class='f2'><td><a href='info.htm?f=q05'>-</a></td><td class='c2'>-</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=q06'>-</a></td><td class='c2'>-</td></tr>
+                       <tr><td colspan='2' style='padding-top: 10px'>Alcald&iacute;a</td></tr>
+                       <tr class='f1'><td colspan='2'>PARTIDO SOCIALISTA OBRERO ESPA&Ntilde;OL - ANDALUC&Iacute;A</td></tr>
+                    </table>
+                  </div>
+                  <div class="ui-block-b">
+                    
+                    <!-- bloque PIECHART -->
+                    <div id="pieChart" class='bloqueSeparado'></div>
+                    <script type='text/javascript'>
+                      var pie = new d3pie("pieChart", {
+                        "header": {
+                          "title": {
+                            "text": "Elecciones locales. DistribuciÃ³n de concejales",
+                            "fontSize": 12,
+                            "font": "verdana"
+                          },
+                        },
+                        "size": {
+                          "canvasHeight": 250,
+                          "pieOuterRadius": "88%"
+                        },
+
+                                                "data": { "content": [
+ { "label": "PSOE-A", "caption": "6 - PARTIDO SOCIALISTA OBRERO ESPAÃOL - ANDALUCÃA", "value":  6, "color": "#ff0000"},  { "label": "PP", "caption": "5 - PARTIDO POPULAR", "value":  5, "color": "#0083d2"}
+ ] },
+
+                        
+                        "labels": {
+                          "outer": {
+                            "pieDistance": 20
+                          },
+                          "inner": {
+                            "format": "value"
+                          },
+                          "mainLabel": {
+                            "font": "verdana",
+                            "fontSize": 10
+                          },
+                          "percentage": {
+                            "color": "#e1e1e1",
+                            "font": "verdana",
+                            "decimalPlaces": 0
+                          },
+                          "value": {
+                            "color": "#e1e1e1",
+                            "font": "verdana"
+                          },
+                          "lines": {
+                            "enabled": true,
+                            "color": "#cccccc"
+                          },
+                          "truncation": {
+                            "enabled": true
+                          }
+                        },
+                        "tooltips": {
+                          "enabled": true,
+                          "type": "caption",
+                          "styles": {
+                            "fontSize": 10,
+                            "padding": 2
+                          }
+                        },
+                        "misc": {
+                          "gradient": {
+                            "enabled": false,
+                            "percentage": 95,
+                            "color": "#000000"
+                          },
+                          "canvasPadding": {
+                            "top": 5,
+                            "right": 5,
+                            "bottom": 5,
+                            "left": 5
+                          },
+                          "pieCenterOffset": {
+                            "x": -50,
+                            "y": 0
+                          }
+                        },
+                        "effects": {
+                          "pullOutSegmentOnClick": {
+                            "effect": "linear",
+                            "speed": 400,
+                            "size": 8
+                          }
+                        }
+                      });
+                      </script>
+                      <!-- fin PIECHART -->
+                      
+                  </div>
+                  
+                </div> <!-- fin elecciones -->
+
+              </div> <!-- id='SOC' -->
+
+              <!--  ..........  ECONOMIA  ..........  -->
+
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="shop" data-expanded-icon="shop"  id='ECO'  class="openMe"> 
+                <h4>Econom&iacute;a</h4>
+                <h4>Agricultura</h4>
+                <div class="ui-grid-a ui-responsive bloque">
+                  <div class="ui-block-a">
+                    <table class='datos' summary='Agricultura'>
+                      <thead><tr><th>Cultivos herb&aacute;ceos. 2023</th><td>&nbsp;</td></tr></thead>
+                      <tr class='f1'><td><a href='info.htm?f=d01'>Superficie dedicada a cultivos herb&aacute;ceos (ha)</a></td><td class='c2'>455</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=d02'>Principal cultivo herb&aacute;ceo de regad&iacute;o</a></td><td class='c2'>-</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=d03'>Principal cultivo herb&aacute;ceo de regad&iacute;o (ha)</a></td><td class='c2'>-</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=d04'>Principal cultivo herb&aacute;ceo de secano</a></td><td class='c2'>Trigo</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=d05'>Principal cultivo herb&aacute;ceo de secano (ha)</a></td><td class='c2'>178</td></tr>
+                    </table>
+                  </div>
+                  <div class="ui-block-b">
+                    <table class='datos' summary='Agricultura2'>
+                      <thead><tr><th >Cultivos le&ntilde;osos. 2023</th><td>&nbsp;</td></tr></thead>
+                      <tr class='f1'><td><a href='info.htm?f=d06'>Superficie dedicada a cultivos le&ntilde;osos (ha)</a></td><td class='c3'>1.376</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=d07'>Principal cultivo le&ntilde;oso de regad&iacute;o</a></td><td class='c3'>Olivar aceituna de mesa</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=d08'>Principal cultivo le&ntilde;oso de regad&iacute;o (ha)</a></td><td class='c3'>200</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=d09'>Principal cultivo le&ntilde;oso de secano</a></td><td class='c3'>Olivar aceituna de aceite</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=d10'>Principal cultivo le&ntilde;oso de secano (ha)</a></td><td class='c3'>961</td></tr>
+                    </table>
+                  </div>
+                </div>
+
+                <br>
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                     <h4>Establecimientos con actividad econ&oacute;mica. 2024</h4>
+                     <table class='datos' summary='Establecimientos con actividad econ&oacute;mica'>
+                       <tr class='f1'><td><a href='info.htm?f=e01'>Sin asalariados</a></td><td class='c2'>186</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=e02'>Hasta 5 asalariados</a></td><td class='c2'>113</td></tr>
+                       <tr class='f1'><td><a href='info.htm?f=e03'>Entre 6 y 19 asalariados</a></td><td class='c2'>25</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=e04'>De 20 y m&aacute;s asalariados</a></td><td class='c2'>11</td></tr>
+                       <tr class='f1'><td><a href='info.htm?f=e05'>Total establecimientos</a></td><td class='c2'>335</td></tr>
+                     </table>
+                  </div>
+                  <div class="ui-block-b">
+                     <h4>Principales actividades econ&oacute;micas. 2024</h4>
+                     <table class='datos' summary='Principales actividades econ&oacute;micas'>
+                                              <tr class='f1'><td><a href='info.htm?f=h01'>Secci&oacute;n A. Agricultura, ganader&iacute;a, silvicultura y pesca</a></td><td class='c2'> 122</td></tr>
+                                              <tr class='f2'><td><a href='info.htm?f=h02'>Secci&oacute;n G. Comercio al por mayor y al por menor</a></td><td class='c2'> 73</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=h03'>Secci&oacute;n C. Industria manufacturera</a></td><td class='c2'> 34</td></tr>
+                                              <tr class='f2'><td><a href='info.htm?f=h04'>Secci&oacute;n F. Construcci&oacute;n</a></td><td class='c2'> 27</td></tr>
+                                              <tr class='f1'><td><a href='info.htm?f=h05'>Secci&oacute;n H. Transporte y almacenamiento</a></td><td class='c2'> 18</td></tr>
+                     </table>
+                  </div>
+                </div>
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                     <h4>Transportes</h4>
+                     <table class='datos' summary='Transportes'>
+                       <tr class='f1'><td><a href='info.htm?f=f01'>Parque de veh&iacute;culos. Turismos. 2025</a></td><td class='c2'>2.227</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=f02'>Autorizaciones de transporte: taxis. 2017</a></td><td class='c2'>1</td></tr>
+                       <tr class='f1'><td><a href='info.htm?f=f03'>Autorizaciones de transporte: mercanc&iacute;as. 2017</a></td><td class='c2'>59</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=f04'>Autorizaciones de transporte: viajeros. 2017</a></td><td class='c2'>1</td></tr>
+                       <tr class='f1'><td><a href='info.htm?f=f05'>Veh&iacute;culos matriculados. 2025</a></td><td class='c2'>40</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=f06'>Veh&iacute;culos turismos matriculados. 2025</a></td><td class='c2'>25</td></tr>                       
+                     </table>
+                  </div>
+                  <div class="ui-block-b">
+                   <h4>Otros indicadores</h4>
+                   <table class='datos' summary='Otros indicadores'>
+                    <tr class='f1'><td><a href='info.htm?f=i02'>Oficinas de entidades de cr&eacute;dito. 2025</a></td><td class='c2'>2</td></tr>
+                    <tr class='f2'><td><a href='info.htm?f=i03'>Consumo de energ&iacute;a el&eacute;ctrica (MWh) (Endesa). 2025</a></td><td class='c2'>9.292</td></tr>
+                    <tr class='f1'><td><a href='info.htm?f=i04'>Consumo de energ&iacute;a el&eacute;ctrica residencial (MWh) (Endesa). 2025</a></td><td class='c2'>5.662</td></tr>
+                   </table>
+                  </div>
+                </div>
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <h4>Turismo</h4>
+                    <table class='datos' summary='Turismo'>
+                      <tr class='f1'><td><a href='info.htm?f=g02'>Hoteles. 2024</a></td><td class='c2'>-</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=g03'>Hostales y pensiones. 2024</a></td><td class='c2'>-</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=g04'>Plazas en hoteles. 2024</a></td><td class='c2'>-</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=g05'>Plazas en hostales y pensiones. 2024</a></td><td class='c2'>-</td></tr>
+                    </table>
+                  </div>
+                </div>
+
+              </div> <!-- id='ECO' -->
+
+              <!--  ..........  PATRIMONIO  ..........  -->
+
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="user" data-expanded-icon="home" id='PAT' class="openMe">
+              <h4>Patrimonio</h4>
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <table class='datos' summary='Patrimonio'>
+                      <tr class='f1'><td><a href='info.htm?f=r01'>Bienes inmuebles. 2025</a></td><td class='c2'>15</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=r02'>Bienes muebles. 2025</a></td><td class='c2'>7</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=r03'>Bienes inmateriales. 2025</a></td><td class='c2'>1</td></tr>
+					  <tr class='f2'><td><span style='font-style: italic;'><a href='https://guiadigital.iaph.es/municipio/6141/rubio-el'>Acceder a GuÃ­a digital</a></span></td></tr>
+                    </table>
+                  </div>
+                  <div class="ui-block-b">
+
+                  </div>
+                </div>
+              </div>  <!-- id='PAT' -->
+
+
+
+              <!--  ..........  MERCADO DE TRABAJO  ..........  -->
+
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="gear" data-expanded-icon="gear" id='MT' class="openMe">
+                <h4>Mercado de trabajo</h4>
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <table class='datos' summary='Mercado de trabajo'>
+                      <tr class='f1'><td><a href='info.htm?f=j01'>Paro registrado. Mujeres. 2025</a></td><td class='c2'>81</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=j02'>Paro registrado. Hombres. 2025</a></td><td class='c2'>56</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=j03'>Paro registrado. Extranjeros. 2025</a></td><td class='c2'>4</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=j11'>Tasa municipal de desempleo (%). 2025</a></td><td class='c2'>15,4</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=j04'>Contratos registrados. Mujeres. 2025</a></td><td class='c2'>586</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=j05'>Contratos registrados. Hombres. 2025</a></td><td class='c2'>1.082</td></tr>
+                    </table>
+                  </div>
+                  <div class="ui-block-b">
+                    <table class='datos' summary='Mercado de trabajo 2'>
+                      <tr class='f1'><td><a href='info.htm?f=j06'>Contratos registrados. Indefinidos. 2025</a></td><td class='c2'>670</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=j07'>Contratos registrados. Temporales. 2025</a></td><td class='c2'>998</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=j08'>Contratos registrados. Extranjeros. 2025</a></td><td class='c2'>175</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=j09'>Trabajadores eventuales agrarios subsidiados. Mujeres. 2025</a></td><td class='c2'>80</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=j10'>Trabajadores eventuales agrarios subsidiados. Hombres. 2025</a></td><td class='c2'>16</td></tr>
+                    </table>
+                  </div>
+                </div>
+              </div> <!-- id='MT' -->
+
+              <!--  ..........  HACIENDA  ..........  -->
+
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="grid" data-expanded-icon="grid"  id='HAC' class="openMe">
+                <h4>Hacienda</h4>  
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                     <h4>Presupuesto de las Corporaciones locales</h4>
+                     <table class='datos' summary='Presupuesto de las Corporaciones locales'>
+                      <tr class='f1'><td><a href='info.htm?f=k01'>Presupuesto liquidado de ingresos (euros). 2024</a></td><td class='c2'>6.198.371</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=k02'>Presupuesto liquidado de gastos (euros). 2024</a></td><td class='c2'>5.953.270</td></tr>
+                      <tr class='f1'><td><a href='info.htm?f=k03'>Ingresos por habitante (euros). 2024</a></td><td class='c2'>1.884</td></tr>
+                      <tr class='f2'><td><a href='info.htm?f=k04'>Gastos por habitante (euros). 2024</a></td><td class='c2'>1.810</td></tr>
+                     </table>
+                  </div>
+                  <div class="ui-block-b">
+                     <h4>IRPF</h4>
+                     <table  class='datos' summary='IRPF'>
+                       <tr class='f1'><td><a href='info.htm?f=m01'>N&uacute;mero de declaraciones. 2023</a></td><td class='c2'>1.793</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=m06'>Renta bruta media. 2023</a></td><td class='c2'>17139</td></tr>
+					   <tr class='f1'><td><a href='info.htm?f=m07'>Renta disponible media. 2023</a></td><td class='c2'>14972</td></tr>
+                     </table>
+                  </div>
+                </div>
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                     <h4>Catastro inmobiliario</h4>
+                     <table class='datos' summary='Catastro inmobiliario'>
+                       <tr class='f1'><td><a href='info.htm?f=l01'>IBI de naturaleza urbana. N&uacute;mero de recibos. 2024</a></td><td class='c2'>2.671</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=l02'>IBI de naturaleza r&uacute;stica. N&uacute;mero de recibos. 2024</a></td><td class='c2'>372</td></tr>
+                       <tr class='f1'><td><a href='info.htm?f=l03'>N&uacute;mero de parcelas catastrales: Solares. 2025</a></td><td class='c2'>411</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=l04'>N&uacute;mero de parcelas catastrales: Parcelas edificadas. 2025</a></td><td class='c2'>2.183</td></tr>
+                     </table>
+                  </div>
+                  <div class="ui-block-b">
+                     <h4>Impuesto de Actividades Econ&oacute;micas</h4>
+                     <table class='datos' summary='Impuesto de Actividades Econ&oacute;micas'>
+                       <tr class='f1'><td><a href='info.htm?f=n01'>Situaciones de alta en actividades empresariales. 2019</a></td><td class='c2'>312</td></tr>
+                       <tr class='f2'><td><a href='info.htm?f=n02'>Situaciones de alta en actividades profesionales. 2019</a></td><td class='c2'>20</td></tr>
+                       <tr class='f1'><td><a href='info.htm?f=n03'>Situaciones de alta en actividades art&iacute;sticas. 2019</a></td><td class='c2'>1</td></tr>
+                     </table>
+                  </div>
+                </div>
+
+              </div> <!-- id='HAC' -->
+
+              <!-- MAS -->
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="plus" data-expanded-icon="plus"  id='MAS' class="openMe">
+                <h4>M&aacute;s informaci&oacute;n</h4> 
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <a href='https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/informe/anual?CodOper=b3_151&idNode=23204'><span class='normal'>Banco de datos SIMA</span></a><br>
+                    <a href='datos/smex99.xls'><span class='normal'>Descarga de datos</span></a><br>
+                  </div>
+                  <div class="ui-block-b">
+                                      </div>
+                </div>
+              </div>
+              <div class='mini no_imprimir'><a href="#inicio" data-role="button" class="ui-btn ui-icon-carat-u ui-corner-all ui-btn-icon-notext ui-btn-inline">&nbsp;</a>Subir</div>
+              <div id='logo_feder' class='alignright'><img src='/portal/images/icons/Logo_UE_FEDER.gif' alt='FEDER'></div>
+              <!--  Notas -->
+              <div id='notas'>
+                <div class='mini'>
+                <h4>Notas</h4>
+				<dl>
+				  <dt>(se)</dt><dd>Informaci&oacute;n sujeta a secreto estad&iacute;stico</dd>
+				  <dt>(-)</dt><dd>Dato no disponible</dd>
+				  <dt>(*)</dt><dd>Dato no significativo, al disponer el municipio de menos de 5 establecimientos turÃ­sticos</dd>
+				</dl>
+	            <br>
+                Fecha de &uacute;ltima actualizaci&oacute;n: <span class='fechaActualizacion'>01 de junio de 2026</span>
+                </div>
+              </div> 
+
+            </div>
+            <!-- fin cuerpo -->
+  <!-- compartir en redes sociales -->
+  <div id='social'>
+      <ul>
+        <li class='no_imprimir'><a href='#'><img src='/portal/images/icons/social/compartir24g.png' border='0' alt='Compartir'>&nbsp;<span>Compartir</span></a>
+        <ul id='soc_compartir'>
+          <li><a href='http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.juntadeandalucia.es%2Finstitutodeestadisticaycartografia%2Fsima%2Fficha.htm%3Fmun%3D41084&amp;t=SIMA+-+El+Rubio+%28Sevilla%29&amp;d=Banco+de+datos+que+ofrece+gran+cantidad+de+informaci%F3n+estad%EDstica+multitem%E1tica+y+multiterritorial' title='Compartir en Facebook'  target='_blank'><img src='/portal/images/icons/social/ico_facebook.png' border='0' alt='Compartir en Facebook'>&nbsp;<span>Facebook</span></a></li>
+          <li><a href='http://twitter.com/home?status=SIMA+El+Rubio+%28Sevilla%29-http%3A%2F%2Fwww.juntadeandalucia.es%2Finstitutodeestadisticaycartografia%2Fsima%2Fficha.htm%3Fmun%3D41084%20v%C3%ADa%20@IECA_Andalucia' title='Compartir en Twitter' target='_blank'><img src='/portal/images/icons/social/ico_twitter.png' border='0'   alt='Compartir en Twitter'>&nbsp;<span>Twitter</span></a></li>
+          <li><a href='http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.juntadeandalucia.es%2Finstitutodeestadisticaycartografia%2Fsima%2Fficha.htm%3Fmun%3D41084&amp;title=SIMA+-+El+Rubio+%28Sevilla%29' title='Compartir en LinkedIn'  target='_blank'><img src='/portal/images/icons/social/ico_linkedin.png' border='0' alt='Compartir en LinkedIn'>&nbsp;<span>LinkedIn</span></a></li>
+          <li><a href='mailto:?subject=Compartiendo%20por%20correo%20electr%C3%B3nico&amp;body=SIMA%20-%20El%20Rubio%20%28Sevilla%29:%0D%0Ahttp://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=41084' title='Compartir  por correo electrónico' target='_blank'><img src='/portal/images/icons/social/ico_mail.png' border='0' alt='Compartir  por correo electrónico'>&nbsp;<span>e-mail</span></a></li>
+          <li>Enlace directo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='text' value='http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=41084' size='35' data-role="none" ><br></li>
+          <li>Insertar en una web:&nbsp;<input type='text' value='<iframe width="1200" height="500" frameborder="0" marginwidth="0" marginheight="0" src="http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/ficha.htm?mun=41084&amp;header=no" ></iframe>' size='35' data-role="none" ><br>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- fin compartir en redes sociales -->
+      </div><!-- fin id=contendor -->
+    </div><!-- fin id=contenedor-centrado -->
+  
+    <div id='pie'>      
+      <matter-footer
+        data='https://ws089.juntadeandalucia.es/institutodeestadisticaycartografia/dega/sites/default/files/json/pie-clasico.json'
+        ocultarSecciones="false"
+        ocultarSeccionSocial="false">
+      </matter-footer>
+    </div>
+    
+    
+
+    <noscript>
+      <p class='displaynone'>Banco de datos que ofrece gran cantidad de información estadística multitemática y multiterritorial</p>
+      <p class='aviso'>Nota: Para utilizar las funcionalidades completas de este sitio es necesario tener
+    JavaScript habilitado. Aqu&iacute; est&aacute;n las <a href="http://www.enable-javascript.com/es/"
+    target="_blank"> instrucciones para habilitar JavaScript en tu navegador web</a>.</p>
+    </noscript>
+
+	<!-- Analiticas Web -->
+
+	<!-- Codigo GA4 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BCXCZSL5LB"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-BCXCZSL5LB');
+	</script>
+
+	<!-- Matomo -->
+	<script>
+	  var _paq = window._paq = window._paq || [];
+	  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+		var u="https://www.juntadeandalucia.es/institutodeestadisticaycartografia/analiticas-web/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '1']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+
+	<!-- fin analiticas web -->
+
+  </body>
+</html>
+
+

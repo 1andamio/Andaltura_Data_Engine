@@ -1,0 +1,259 @@
+ 
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>SIMA - N&uacute;cleos de poblaci&oacute;n del municipio Fornes (Granada) | Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a</title>
+
+    <!-- meta -->
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=Edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+    <meta name='description' content='N&uacute;cleos de poblaci&oacute;n del municipio Fornes (Granada)' />    
+    <!-- estilos genericos -->
+    <style>
+      @import '/portal/css/estiloCabecera.css';
+      @import '/portal/css/estiloGenerico.css';
+      @import '/portal/css/estiloContenido.css';
+      @import '/portal/css/colorEstadistica.css';
+      @import '/portal/css/recursos/imprimir.css' print;
+    </style>
+    
+    <!-- link -->
+    <link rel="shortcut icon" href="/portal/images/cabecera/logo_mini.png" type="image/png" />
+
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/jquery.mobile.structure-1.4.5.min.css' />
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/jquery.mobile.icons.min.css' />
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/ieca-mobile.min.css' />
+    
+    <!-- CSS mapea -->
+    <link rel='stylesheet' href='https://mapea4-sigc.juntadeandalucia.es/assets/css/mapea.ol.min.css' />
+    <link rel='stylesheet' type='text/css' href='css/custom.css'>
+
+    
+    <!-- carga Jquery -->
+    <script src='/portal/js/jquery/jquery.min.js'></script>
+    <script src='/portal/js/jquery/jquery-ui.min.js'></script>
+    <link rel='stylesheet' href='/portal/js/jquery/themes/jquery-ui.min.css'>
+    
+    <!-- webComponents -->
+    <script src='/portal/wc/matter-header.js'></script>
+    <script src='/portal/wc/matter-footer.js'></script>
+    
+
+    <!-- adicional -->
+    <script src='/portal/js/cabecera.js'></script>
+<script type='text/javascript'>
+
+function actualizaIFRAME(codNucleo, nomNucleo) {
+
+  console.log(mapajs.getKML());
+  mapajs.removeKML(mapajs.getKML());
+  mapajs.addKML("KML*NÃºcleo:" + nomNucleo + "*http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/nucleos/kml/" + codNucleo + ".kml*true");
+  mapajs.addKML("KML*Fornes*http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/nucleos/contornos/c18077.kml*true");
+  
+  return false;
+}
+
+//--- JQuery Mobile ---
+
+//evitamos el efecto de jQuery Mobile sobre ciertos elementos
+  $(function(){
+    $('a').attr('data-ajax','false');
+    $('#minibuscador input').attr('data-role','none');
+  });
+</script>
+<script type='text/javascript' src='/portal/js/jquery/jquery.mobile.min.js'></script>
+<!-- js mapea -->
+<script type='text/javascript' src='https://mapea4-sigc.juntadeandalucia.es/js/mapea.ol.min.js'></script>
+<script type='text/javascript' src='https://mapea4-sigc.juntadeandalucia.es/js/configuration.js'></script>
+
+  </head>
+
+  <body  >
+    
+    <!-- cabecera portal DEGA -->
+    <div id='cabecera-dega'>
+      <matter-header data='https://ws089.juntadeandalucia.es/institutodeestadisticaycartografia/dega/sites/default/files/json/cabecera-clasica.json'></matter-header>
+    </div>
+    <!-- cuerpo de la pagina --->
+    <div id='contenedor_centrado'>
+      <div id='contenedor'>
+
+      ï»¿
+            <!-- cuerpo-->
+            <div data-role="main" class="ui-content" id='inicio'>
+
+              <h1 class='titPag'>Andaluc&iacute;a pueblo a pueblo - Fichas Municipales</h1>
+              <h2 id='fuente_ieca' class='subTitPag'><a href='http://www.juntadeandalucia.es/institutodeestadisticaycartografia/' target='_top'>Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a</a></h2>
+            
+              <!-- menu de contenidos -->
+              <div data-role="panel" data-display="overlay" id="panelmuni" >
+                <h4>Ver municipios de:</h4>
+                <br>
+                <ul data-role='listview'>
+                    <li><a href='/sima/provincia.htm?prov=04'>Almer&iacute;a</a></li>
+                    <li><a href='/sima/provincia.htm?prov=11'>C&aacute;diz</a></li>
+                    <li><a href='/sima/provincia.htm?prov=14'>C&oacute;rdoba</a></li>
+                    <li><a href='/sima/provincia.htm?prov=18'>Granada</a></li>
+                    <li><a href='/sima/provincia.htm?prov=21'>Huelva</a></li>
+                    <li><a href='/sima/provincia.htm?prov=23'>Ja&eacute;n</a></li>
+                    <li><a href='/sima/provincia.htm?prov=29'>M&aacute;laga</a></li>
+                    <li><a href='/sima/provincia.htm?prov=41'>Sevilla</a></li>
+                </ul>
+                <br>
+                <h4>MÃ¡s informaci&oacute;n</h4>
+                <div data-role="controlgroup" id="opcsima">
+                  <a href='https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/informe/anual?CodOper=b3_151&idNode=23204' data-role="button" class="ui-btn ui-corner-all" data-mini="true">Banco de datos SIMA</a>
+                  <a href='datos/smex99.xls' data-role="button" class="ui-btn ui-corner-all" data-mini="true">Descarga de datos</a>
+                </div>
+                <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right">Cerrar</a>
+              </div>
+
+              <br><br>
+
+              <!-- titulo -->
+              <div class='mini'><a href="#panelmuni" data-role="button" class="ui-btn ui-icon-bars ui-corner-all ui-btn-icon-notext ui-btn-inline" alt='Cambiar provincia'>&nbsp;</a>Provincia de <a href='smind18.htm'>Granada</a>&nbsp;&nbsp;</div>
+              <hr>
+              <div id='tituloNucleos'>
+                <h3 class='nomMuni'><a href='info.htm?f=b04'>N&uacute;cleos de poblaci&oacute;n de Fornes (Granada)</a></h3>
+                Puede posicionar los n&uacute;cleos de poblaci&oacute;n en el mapa pinchando sobre su nombre en la tabla.
+              </div>
+  
+              <!-- nucleos -->
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="location" data-expanded-icon="location" id='contenedor_nucleos' class="openMe">
+              <h4>Territorio</h4>
+                 <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <div id='nucleos_tabla'>
+
+                      <table class='datos bloque alignright' cellspacing='1' summary='N&uacute;cleos de poblaci&oacute;n'>
+                        <thead id='cabecera_nucleos'>
+                          <tr>
+                            <th rowspan='2' class='nomNucleo'>&nbsp;N&uacute;cleo</th>
+                            <th colspan='3' class='aligncenter'>Poblaci&oacute;n</th>
+                          </tr>
+                          <tr>
+                            <th><span class='cursiva'>Total</span></th>
+                            <th><span class='cursiva'>Hombres</span></th>
+                            <th><span class='cursiva'>Mujeres</span></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                                       <tr class='nuc_mun negrita'><td class='nomNucleo'>Fornes</td><td>543</td><td>287</td><td>256</td></tr>
+               <tr class='f2 negrita'><td class='nomNucleo'>Poblaci&oacute;n en n&uacute;cleos</td><td>521</td><td>274</td><td>247</td></tr>
+               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("18077000101", "Fornes")'>Fornes</a></td><td>521</td><td>274</td><td>247</td></tr>
+               <tr class='f1 negrita'><td class='nomNucleo'>Poblaci&oacute;n en diseminados</td><td>22</td><td>13</td><td>9</td></tr>
+                        </tbody>
+                      </table>
+                      
+                      <br><br>
+                      
+                      <div class='mini'>
+                        <a href='ficha.htm?mun=18077' data-role="button" class="ui-btn ui-icon-back ui-corner-all ui-btn-icon-notext ui-btn-inline">&nbsp;</a><a href='ficha.htm?mun=18077'>Volver a la ficha de Fornes</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="ui-block-b">
+
+                    <!-- bloque MAPEA -->
+                    <div id="mapa" class='mapea_tipo_3 tamano_nucleos'></div>
+                    <script type='text/javascript'>
+                      mapajs = M.map({
+                        container: 'mapa',
+                        controls: ['panzoombar','layerswitcher','mouse','navtoolbar'],
+                        wmcfiles: ['https://www.juntadeandalucia.es/institutodeestadisticaycartografia/WMC/public/WMC_basico.xml*Contexto'],
+                        projection:'EPSG:25830*m',
+                        layers:['KML*Fornes*http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/nucleos/contornos/c18077.kml*false'],
+                        center:[424879,4089302],
+                        zoom:7,
+                      });
+                      // Layer grid de poblaciÃ³n
+                      let gridpob = new M.layer.WMS({
+                        url: "http://www.juntadeandalucia.es/institutodeestadisticaycartografia/geoserver-ieca/grid/wms?",
+                        name: "gridp_250",
+                        legend: "Grid de PoblaciÃ³n",
+                        transparent: true,
+                        tiled: true,
+                      });
+
+                      //asigno transparencia y visibilidad al layer del grid de poblaciÃ³n.
+                      gridpob.setOpacity(0.5);
+                      gridpob.setVisible(false);
+
+                      //AÃ±ado los layers creados anteriormente
+                      mapajs.addWMS([gridpob]);
+                    </script>
+                    <!-- fin bloque MAPEA -->
+
+                  </div>
+                </div>
+              </div>
+
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="plus" data-expanded-icon="plus"  id='MAS' class="openMe">
+                <h4>M&aacute;s informaci&oacute;n</h4> 
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <a href='https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/informe/anual?CodOper=b3_151&idNode=23204'><span class='normal'>Banco de datos SIMA</span></a><br>
+                    <a href='datos/smex99.xls'><span class='normal'>Descarga de datos</span></a><br>
+                  </div>
+                </div>
+              </div>
+              <div class='mini'><a href="#inicio" data-role="button" class="ui-btn ui-icon-carat-u ui-corner-all ui-btn-icon-notext ui-btn-inline">&nbsp;</a><a href="#inicio">Subir</a></div>
+
+            </div>
+            <!-- fin Cuerpo -->
+
+      </div><!-- fin id=contendor -->
+    </div><!-- fin id=contenedor-centrado -->
+  
+    <div id='pie'>      
+      <matter-footer
+        data='https://ws089.juntadeandalucia.es/institutodeestadisticaycartografia/dega/sites/default/files/json/pie-clasico.json'
+        ocultarSecciones="false"
+        ocultarSeccionSocial="false">
+      </matter-footer>
+    </div>
+    
+    
+
+    <noscript>
+      <p class='displaynone'>N&uacute;cleos de poblaci&oacute;n del municipio Fornes (Granada)</p>
+      <p class='aviso'>Nota: Para utilizar las funcionalidades completas de este sitio es necesario tener
+    JavaScript habilitado. Aqu&iacute; est&aacute;n las <a href="http://www.enable-javascript.com/es/"
+    target="_blank"> instrucciones para habilitar JavaScript en tu navegador web</a>.</p>
+    </noscript>
+
+	<!-- Analiticas Web -->
+
+	<!-- Codigo GA4 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BCXCZSL5LB"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-BCXCZSL5LB');
+	</script>
+
+	<!-- Matomo -->
+	<script>
+	  var _paq = window._paq = window._paq || [];
+	  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+		var u="https://www.juntadeandalucia.es/institutodeestadisticaycartografia/analiticas-web/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '1']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+
+	<!-- fin analiticas web -->
+
+  </body>
+</html>
+

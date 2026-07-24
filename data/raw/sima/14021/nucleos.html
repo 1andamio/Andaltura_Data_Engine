@@ -1,0 +1,259 @@
+ 
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>SIMA - N&uacute;cleos de poblaci&oacute;n del municipio CÃ³rdoba (capital) (CÃ³rdoba) | Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a</title>
+
+    <!-- meta -->
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=Edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+    <meta name='description' content='N&uacute;cleos de poblaci&oacute;n del municipio Córdoba (capital) (Córdoba)' />    
+    <!-- estilos genericos -->
+    <style>
+      @import '/portal/css/estiloCabecera.css';
+      @import '/portal/css/estiloGenerico.css';
+      @import '/portal/css/estiloContenido.css';
+      @import '/portal/css/colorEstadistica.css';
+      @import '/portal/css/recursos/imprimir.css' print;
+    </style>
+    
+    <!-- link -->
+    <link rel="shortcut icon" href="/portal/images/cabecera/logo_mini.png" type="image/png" />
+
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/jquery.mobile.structure-1.4.5.min.css' />
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/jquery.mobile.icons.min.css' />
+    <link rel='stylesheet' type='text/css' href='../portal/js/jquery/themes/ieca-mobile.min.css' />
+    
+    <!-- CSS mapea -->
+    <link rel='stylesheet' href='https://mapea4-sigc.juntadeandalucia.es/assets/css/mapea.ol.min.css' />
+    <link rel='stylesheet' type='text/css' href='css/custom.css'>
+
+    
+    <!-- carga Jquery -->
+    <script src='/portal/js/jquery/jquery.min.js'></script>
+    <script src='/portal/js/jquery/jquery-ui.min.js'></script>
+    <link rel='stylesheet' href='/portal/js/jquery/themes/jquery-ui.min.css'>
+    
+    <!-- webComponents -->
+    <script src='/portal/wc/matter-header.js'></script>
+    <script src='/portal/wc/matter-footer.js'></script>
+    
+
+    <!-- adicional -->
+    <script src='/portal/js/cabecera.js'></script>
+<script type='text/javascript'>
+
+function actualizaIFRAME(codNucleo, nomNucleo) {
+
+  console.log(mapajs.getKML());
+  mapajs.removeKML(mapajs.getKML());
+  mapajs.addKML("KML*NÃºcleo:" + nomNucleo + "*http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/nucleos/kml/" + codNucleo + ".kml*true");
+  mapajs.addKML("KML*CÃ³rdoba (capital)*http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/nucleos/contornos/c14021.kml*true");
+  
+  return false;
+}
+
+//--- JQuery Mobile ---
+
+//evitamos el efecto de jQuery Mobile sobre ciertos elementos
+  $(function(){
+    $('a').attr('data-ajax','false');
+    $('#minibuscador input').attr('data-role','none');
+  });
+</script>
+<script type='text/javascript' src='/portal/js/jquery/jquery.mobile.min.js'></script>
+<!-- js mapea -->
+<script type='text/javascript' src='https://mapea4-sigc.juntadeandalucia.es/js/mapea.ol.min.js'></script>
+<script type='text/javascript' src='https://mapea4-sigc.juntadeandalucia.es/js/configuration.js'></script>
+
+  </head>
+
+  <body  >
+    
+    <!-- cabecera portal DEGA -->
+    <div id='cabecera-dega'>
+      <matter-header data='https://ws089.juntadeandalucia.es/institutodeestadisticaycartografia/dega/sites/default/files/json/cabecera-clasica.json'></matter-header>
+    </div>
+    <!-- cuerpo de la pagina --->
+    <div id='contenedor_centrado'>
+      <div id='contenedor'>
+
+      ï»¿
+            <!-- cuerpo-->
+            <div data-role="main" class="ui-content" id='inicio'>
+
+              <h1 class='titPag'>Andaluc&iacute;a pueblo a pueblo - Fichas Municipales</h1>
+              <h2 id='fuente_ieca' class='subTitPag'><a href='http://www.juntadeandalucia.es/institutodeestadisticaycartografia/' target='_top'>Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a</a></h2>
+            
+              <!-- menu de contenidos -->
+              <div data-role="panel" data-display="overlay" id="panelmuni" >
+                <h4>Ver municipios de:</h4>
+                <br>
+                <ul data-role='listview'>
+                    <li><a href='/sima/provincia.htm?prov=04'>Almer&iacute;a</a></li>
+                    <li><a href='/sima/provincia.htm?prov=11'>C&aacute;diz</a></li>
+                    <li><a href='/sima/provincia.htm?prov=14'>C&oacute;rdoba</a></li>
+                    <li><a href='/sima/provincia.htm?prov=18'>Granada</a></li>
+                    <li><a href='/sima/provincia.htm?prov=21'>Huelva</a></li>
+                    <li><a href='/sima/provincia.htm?prov=23'>Ja&eacute;n</a></li>
+                    <li><a href='/sima/provincia.htm?prov=29'>M&aacute;laga</a></li>
+                    <li><a href='/sima/provincia.htm?prov=41'>Sevilla</a></li>
+                </ul>
+                <br>
+                <h4>MÃ¡s informaci&oacute;n</h4>
+                <div data-role="controlgroup" id="opcsima">
+                  <a href='https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/informe/anual?CodOper=b3_151&idNode=23204' data-role="button" class="ui-btn ui-corner-all" data-mini="true">Banco de datos SIMA</a>
+                  <a href='datos/smex99.xls' data-role="button" class="ui-btn ui-corner-all" data-mini="true">Descarga de datos</a>
+                </div>
+                <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-right">Cerrar</a>
+              </div>
+
+              <br><br>
+
+              <!-- titulo -->
+              <div class='mini'><a href="#panelmuni" data-role="button" class="ui-btn ui-icon-bars ui-corner-all ui-btn-icon-notext ui-btn-inline" alt='Cambiar provincia'>&nbsp;</a>Provincia de <a href='smind14.htm'>C&oacute;rdoba</a>&nbsp;&nbsp;</div>
+              <hr>
+              <div id='tituloNucleos'>
+                <h3 class='nomMuni'><a href='info.htm?f=b04'>N&uacute;cleos de poblaci&oacute;n de C&oacute;rdoba (capital) (C&oacute;rdoba)</a></h3>
+                Puede posicionar los n&uacute;cleos de poblaci&oacute;n en el mapa pinchando sobre su nombre en la tabla.
+              </div>
+  
+              <!-- nucleos -->
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="location" data-expanded-icon="location" id='contenedor_nucleos' class="openMe">
+              <h4>Territorio</h4>
+                 <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <div id='nucleos_tabla'>
+
+                      <table class='datos bloque alignright' cellspacing='1' summary='N&uacute;cleos de poblaci&oacute;n'>
+                        <thead id='cabecera_nucleos'>
+                          <tr>
+                            <th rowspan='2' class='nomNucleo'>&nbsp;N&uacute;cleo</th>
+                            <th colspan='3' class='aligncenter'>Poblaci&oacute;n</th>
+                          </tr>
+                          <tr>
+                            <th><span class='cursiva'>Total</span></th>
+                            <th><span class='cursiva'>Hombres</span></th>
+                            <th><span class='cursiva'>Mujeres</span></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                                       <tr class='nuc_mun negrita'><td class='nomNucleo'>C&oacute;rdoba</td><td>323.763</td><td>155.314</td><td>168.449</td></tr>
+               <tr class='f2 negrita'><td class='nomNucleo'>Poblaci&oacute;n en n&uacute;cleos</td><td>316.680</td><td>151.625</td><td>165.055</td></tr>
+               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000202", "Abejorreras")'>Abejorreras</a></td><td>0</td><td>0</td><td>0</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000201", "El Alcaide")'>El Alcaide</a></td><td>1.396</td><td>684</td><td>712</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000203", "El HiguerÃ³n Baja")'>El Higuer&oacute;n Baja</a></td><td>0</td><td>0</td><td>0</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000204", "Santa Clara")'>Santa Clara</a></td><td>87</td><td>48</td><td>39</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000305", "Alcolea")'>Alcolea</a></td><td>2.627</td><td>1.284</td><td>1.343</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000301", "Barriada del Ãngel")'>Barriada del &Aacute;ngel</a></td><td>1.046</td><td>536</td><td>510</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000304", "El Sol")'>El Sol</a></td><td>474</td><td>250</td><td>224</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000302", "Encinares de Alcolea")'>Encinares de Alcolea</a></td><td>866</td><td>447</td><td>419</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000306", "Porrillas")'>Porrillas</a></td><td>295</td><td>154</td><td>141</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000307", "Ribera Baja")'>Ribera Baja</a></td><td>630</td><td>322</td><td>308</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000701", "Casilla del Aire")'>Casilla del Aire</a></td><td>64</td><td>35</td><td>29</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000702", "La Gitana")'>La Gitana</a></td><td>8</td><td>5</td><td>3</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000801", "Brimz")'>Brimz</a></td><td>68</td><td>62</td><td>6</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000802", "Cerro Muriano")'>Cerro Muriano</a></td><td>782</td><td>408</td><td>374</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000901", "CÃ³rdoba")'>C&oacute;rdoba</a></td><td>290.022</td><td>138.129</td><td>151.893</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001301", "Aguilarejo Alto y Bajo")'>Aguilarejo Alto y Bajo</a></td><td>275</td><td>138</td><td>137</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001305", "El HiguerÃ³n")'>El Higuer&oacute;n</a></td><td>2.200</td><td>1.081</td><td>1.119</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001302", "Llanos del Castillo")'>Llanos del Castillo</a></td><td>131</td><td>65</td><td>66</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001303", "Terrenos del Castillo")'>Terrenos del Castillo</a></td><td>194</td><td>105</td><td>89</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001304", "VeredÃ³n de los Pinos")'>Vered&oacute;n de los Pinos</a></td><td>21</td><td>8</td><td>13</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001001", "Encinarejo de CÃ³rdoba")'>Encinarejo de C&oacute;rdoba</a></td><td>1.409</td><td>697</td><td>712</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001101", "El Hornillo")'>El Hornillo</a></td><td>38</td><td>17</td><td>21</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001102", "El Jardinito")'>El Jardinito</a></td><td>24</td><td>12</td><td>12</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001103", "El Melgarejo")'>El Melgarejo</a></td><td>76</td><td>49</td><td>27</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001104", "El Negrete")'>El Negrete</a></td><td>213</td><td>117</td><td>96</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001107", "Guardentera")'>Guardentera</a></td><td>18</td><td>9</td><td>9</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001105", "San Llorente")'>San Llorente</a></td><td>0</td><td>0</td><td>0</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001106", "Torrehoria")'>Torrehoria</a></td><td>59</td><td>30</td><td>29</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002203", "Camino Carbonell")'>Camino Carbonell</a></td><td>39</td><td>17</td><td>22</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002209", "Camino Lope GarcÃ­a")'>Camino Lope Garc&iacute;a</a></td><td>4</td><td>1</td><td>3</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002202", "CampiÃ±uela Baja")'>Campi&ntilde;uela Baja</a></td><td>414</td><td>218</td><td>196</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002201", "El Arenal")'>El Arenal</a></td><td>7</td><td>4</td><td>3</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002206", "Huerta de la Cruz")'>Huerta de la Cruz</a></td><td>3</td><td>0</td><td>3</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002208", "Las Quemadas")'>Las Quemadas</a></td><td>413</td><td>208</td><td>205</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002210", "Las Quemadillas")'>Las Quemadillas</a></td><td>855</td><td>461</td><td>394</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002207", "MontÃ³n de Tierra")'>Mont&oacute;n de Tierra</a></td><td>497</td><td>261</td><td>236</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002204", "Universidad Laboral")'>Universidad Laboral</a></td><td>15</td><td>8</td><td>7</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000401", "Las Jaras")'>Las Jaras</a></td><td>514</td><td>262</td><td>252</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021000402", "Solanas del Pilar")'>Solanas del Pilar</a></td><td>26</td><td>17</td><td>9</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001701", "Hospital los Morales")'>Hospital los Morales</a></td><td>78</td><td>38</td><td>40</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001702", "La Matrid")'>La Matrid</a></td><td>11</td><td>6</td><td>5</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001703", "San CristÃ³bal")'>San Crist&oacute;bal</a></td><td>9</td><td>6</td><td>3</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001502", "Cortijo El Rubio")'>Cortijo El Rubio</a></td><td>19</td><td>7</td><td>12</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001503", "Fontanar de Quintos")'>Fontanar de Quintos</a></td><td>540</td><td>286</td><td>254</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001501", "La Barquera")'>La Barquera</a></td><td>68</td><td>30</td><td>38</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001504", "La Golondrina")'>La Golondrina</a></td><td>1.023</td><td>516</td><td>507</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001505", "Majaneque")'>Majaneque</a></td><td>373</td><td>189</td><td>184</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001601", "La Gorgoja")'>La Gorgoja</a></td><td>347</td><td>173</td><td>174</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001603", "Las Pitas")'>Las Pitas</a></td><td>198</td><td>103</td><td>95</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001602", "Moroqui")'>Moroqui</a></td><td>16</td><td>7</td><td>9</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001801", "DoÃ±a Manuela")'>Do&ntilde;a Manuela</a></td><td>2.312</td><td>1.147</td><td>1.165</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001802", "Hospital PsiquiÃ¡trico")'>Hospital Psiqui&aacute;trico</a></td><td>24</td><td>18</td><td>6</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001805", "Las Corralijas")'>Las Corralijas</a></td><td>18</td><td>10</td><td>8</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001803", "PeÃ±atejada")'>Pe&ntilde;atejada</a></td><td>214</td><td>112</td><td>102</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021001804", "Torreblanca")'>Torreblanca</a></td><td>417</td><td>216</td><td>201</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002901", "Santa Cruz")'>Santa Cruz</a></td><td>607</td><td>302</td><td>305</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002302", "Campo Alegre")'>Campo Alegre</a></td><td>176</td><td>91</td><td>85</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002303", "El Puerto")'>El Puerto</a></td><td>9</td><td>7</td><td>2</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002304", "El Salado")'>El Salado</a></td><td>141</td><td>82</td><td>59</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002301", "La Caballera")'>La Caballera</a></td><td>196</td><td>105</td><td>91</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002305", "Santa MarÃ­a de Trassierra")'>Santa Mar&iacute;a de Trassierra</a></td><td>367</td><td>191</td><td>176</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002501", "Santo Domingo")'>Santo Domingo</a></td><td>53</td><td>27</td><td>26</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002602", "Atalayuela")'>Atalayuela</a></td><td>37</td><td>19</td><td>18</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002601", "Cortijo La Reina")'>Cortijo La Reina</a></td><td>1</td><td>1</td><td>0</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002702", "CaÃ±uelo Bajo")'>Ca&ntilde;uelo Bajo</a></td><td>14</td><td>8</td><td>6</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002701", "La Reina")'>La Reina</a></td><td>0</td><td>0</td><td>0</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002801", "Vereda Real Soriana")'>Vereda Real Soriana</a></td><td>756</td><td>372</td><td>384</td></tr>               <tr class='f1'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002802", "VeredÃ³n Frailes")'>Vered&oacute;n Frailes</a></td><td>904</td><td>451</td><td>453</td></tr>               <tr class='f2'><td class='nomNucleo indentado'><a href='#' onClick='actualizaIFRAME("14021002803", "Villarrubia")'>Villarrubia</a></td><td>1.942</td><td>956</td><td>986</td></tr>
+               <tr class='f1 negrita'><td class='nomNucleo'>Poblaci&oacute;n en diseminados</td><td>7.083</td><td>3.689</td><td>3.394</td></tr>
+                        </tbody>
+                      </table>
+                      
+                      <br><br>
+                      
+                      <div class='mini'>
+                        <a href='ficha.htm?mun=14021' data-role="button" class="ui-btn ui-icon-back ui-corner-all ui-btn-icon-notext ui-btn-inline">&nbsp;</a><a href='ficha.htm?mun=14021'>Volver a la ficha de C&oacute;rdoba (capital)</a>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="ui-block-b">
+
+                    <!-- bloque MAPEA -->
+                    <div id="mapa" class='mapea_tipo_3 tamano_nucleos'></div>
+                    <script type='text/javascript'>
+                      mapajs = M.map({
+                        container: 'mapa',
+                        controls: ['panzoombar','layerswitcher','mouse','navtoolbar'],
+                        wmcfiles: ['https://www.juntadeandalucia.es/institutodeestadisticaycartografia/WMC/public/WMC_basico.xml*Contexto'],
+                        projection:'EPSG:25830*m',
+                        layers:['KML*CÃ³rdoba (capital)*http://www.juntadeandalucia.es/institutodeestadisticaycartografia/sima/nucleos/contornos/c14021.kml*false'],
+                        center:[348891,4189217],
+                        zoom:3,
+                      });
+                      // Layer grid de poblaciÃ³n
+                      let gridpob = new M.layer.WMS({
+                        url: "http://www.juntadeandalucia.es/institutodeestadisticaycartografia/geoserver-ieca/grid/wms?",
+                        name: "gridp_250",
+                        legend: "Grid de PoblaciÃ³n",
+                        transparent: true,
+                        tiled: true,
+                      });
+
+                      //asigno transparencia y visibilidad al layer del grid de poblaciÃ³n.
+                      gridpob.setOpacity(0.5);
+                      gridpob.setVisible(false);
+
+                      //AÃ±ado los layers creados anteriormente
+                      mapajs.addWMS([gridpob]);
+                    </script>
+                    <!-- fin bloque MAPEA -->
+
+                  </div>
+                </div>
+              </div>
+
+              <div data-role='collapsible' data-collapsed='false' data-collapsed-icon="plus" data-expanded-icon="plus"  id='MAS' class="openMe">
+                <h4>M&aacute;s informaci&oacute;n</h4> 
+                <div class="ui-grid-a ui-responsive">
+                  <div class="ui-block-a">
+                    <a href='https://www.juntadeandalucia.es/institutodeestadisticaycartografia/badea/informe/anual?CodOper=b3_151&idNode=23204'><span class='normal'>Banco de datos SIMA</span></a><br>
+                    <a href='datos/smex99.xls'><span class='normal'>Descarga de datos</span></a><br>
+                  </div>
+                </div>
+              </div>
+              <div class='mini'><a href="#inicio" data-role="button" class="ui-btn ui-icon-carat-u ui-corner-all ui-btn-icon-notext ui-btn-inline">&nbsp;</a><a href="#inicio">Subir</a></div>
+
+            </div>
+            <!-- fin Cuerpo -->
+
+      </div><!-- fin id=contendor -->
+    </div><!-- fin id=contenedor-centrado -->
+  
+    <div id='pie'>      
+      <matter-footer
+        data='https://ws089.juntadeandalucia.es/institutodeestadisticaycartografia/dega/sites/default/files/json/pie-clasico.json'
+        ocultarSecciones="false"
+        ocultarSeccionSocial="false">
+      </matter-footer>
+    </div>
+    
+    
+
+    <noscript>
+      <p class='displaynone'>N&uacute;cleos de poblaci&oacute;n del municipio Córdoba (capital) (Córdoba)</p>
+      <p class='aviso'>Nota: Para utilizar las funcionalidades completas de este sitio es necesario tener
+    JavaScript habilitado. Aqu&iacute; est&aacute;n las <a href="http://www.enable-javascript.com/es/"
+    target="_blank"> instrucciones para habilitar JavaScript en tu navegador web</a>.</p>
+    </noscript>
+
+	<!-- Analiticas Web -->
+
+	<!-- Codigo GA4 -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-BCXCZSL5LB"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-BCXCZSL5LB');
+	</script>
+
+	<!-- Matomo -->
+	<script>
+	  var _paq = window._paq = window._paq || [];
+	  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+		var u="https://www.juntadeandalucia.es/institutodeestadisticaycartografia/analiticas-web/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '1']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+
+	<!-- fin analiticas web -->
+
+  </body>
+</html>
+

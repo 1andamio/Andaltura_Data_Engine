@@ -7,119 +7,101 @@ from __future__ import annotations
 from bs4 import BeautifulSoup
 
 from mdta.importers.sima.indicator_parser import IndicatorParser
-from mdta.importers.sima.models import (
-    MunicipalityData,
-    Section,
-)
+from mdta.importers.sima.models import MunicipalityData
+from mdta.importers.sima.nuclei import SIMANucleiParser
 from mdta.utils.text_normalizer import normalize_text
 
 
 class SIMAParser:
     """
-    Convierte el HTML del SIMA en un objeto MunicipalityData.
+    Convierte los documentos del SIMA en un objeto MunicipalityData.
+
+    Cada tipo de información (indicadores, núcleos, etc.) se obtiene de un
+    documento independiente y es procesado por su parser especializado.
     """
+
+    def __init__(self) -> None:
+
+        self._indicator_parser = IndicatorParser()
+        self._nuclei_parser = SIMANucleiParser()
+
+    # ------------------------------------------------------------------
 
     def parse(
         self,
         municipality_code: str,
-        html: str,
+        municipality_html: str,
+        nuclei_html: str | None = None,
     ) -> MunicipalityData:
+        """
+        Procesa los documentos de un municipio del SIMA.
 
-        soup = BeautifulSoup(html, "lxml")
+        Parameters
+        ----------
+        municipality_code
+            Código INE del municipio.
 
-        raw_title = soup.title.get_text(" ", strip=True)
+        municipality_html
+            HTML de la ficha municipal.
 
-        print("\n=========== DEBUG PARSER ===========")
-        print("TITLE repr :", repr(raw_title))
-        print("TITLE bytes:", raw_title.encode("unicode_escape"))
-        print("====================================")
+        nuclei_html
+            HTML de la página de núcleos de población.
+            Es opcional porque no todas las pruebas necesitan cargarla.
 
-        print("\n=========== DEBUG NORMALIZE ===========")
+        Returns
+        -------
+        MunicipalityData
+        """
 
-        print("RAW TITLE:")
-        print(repr(raw_title))
-        print(raw_title.encode("unicode_escape"))
-
-        title = normalize_text(raw_title)
-
-        print("\nNORMALIZED:")
-        print(repr(title))
-        print(title.encode("unicode_escape"))
-
-        municipio = soup.select_one("h3.nomMuni")
-
-        if municipio:
-            nombre = municipio.get_text(" ", strip=True)
-
-            print("\nH3 ORIGINAL:")
-            print(repr(nombre))
-            print(nombre.encode("unicode_escape"))
-
-            nombre2 = normalize_text(nombre)
-
-            print("\nH3 NORMALIZADO:")
-            print(repr(nombre2))
-            print(nombre2.encode("unicode_escape"))
-
-        print("=======================================\n")
-
-        municipality_name = (
-            title.replace("SIMA - ", "")
-            .split("(")[0]
-            .strip()
+        soup = BeautifulSoup(
+            municipality_html,
+            "lxml",
         )
 
         municipality = MunicipalityData(
             code=municipality_code,
-            name=municipality_name,
+            name=self._get_municipality_name(soup),
         )
 
-        indicator_parser = IndicatorParser()
+        # ----------------------------------------------------------
+        # Indicadores
+        # ----------------------------------------------------------
 
-        tables = soup.find_all("table")
+        municipality.sections.extend(
+            self._indicator_parser.parse(soup)
+        )
 
-        for table in tables:
+        # ----------------------------------------------------------
+        # Núcleos de población
+        # ----------------------------------------------------------
 
-            previous = table.find_previous(
-                ["h1", "h2", "h3", "h4", "strong", "b"]
+        if nuclei_html is not None:
+
+            municipality.population_entities.extend(
+                self._nuclei_parser.parse(nuclei_html)
             )
-
-            if previous:
-                section_name = normalize_text(
-                    previous.get_text(" ", strip=True)
-                )
-            else:
-                section_name = "Sin sección"
-
-            section = Section(
-                name=section_name,
-            )
-
-            rows = table.find_all("tr")
-
-            for row in rows:
-
-                cells = row.find_all(["th", "td"])
-
-                if len(cells) < 2:
-                    continue
-
-                label = normalize_text(
-                    cells[0].get_text(" ", strip=True)
-                )
-
-                value = normalize_text(
-                    cells[1].get_text(" ", strip=True)
-                )
-
-                indicator = indicator_parser.parse(
-                    section_name,
-                    label,
-                    value,
-                )
-
-                section.indicators.append(indicator)
-
-            municipality.sections.append(section)
 
         return municipality
+
+    # ------------------------------------------------------------------
+
+    def _get_municipality_name(
+        self,
+        soup: BeautifulSoup,
+    ) -> str:
+        """
+        Extrae el nombre del municipio desde el título de la ficha.
+        """
+
+        title = soup.title
+
+        if title is None:
+            return ""
+
+        text = normalize_text(
+            title.get_text(" ", strip=True)
+        )
+
+        text = text.replace("SIMA - ", "")
+
+        return text.split("(")[0].strip()

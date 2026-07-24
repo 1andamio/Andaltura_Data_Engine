@@ -24,28 +24,66 @@ class SIMADownloader:
         self.session.headers.update(HEADERS)
 
     def _download(self, url: str, params: dict) -> str:
+        """
+        Descarga una página del SIMA.
 
-        response = self.session.get(
-            url,
-            params=params,
-            timeout=TIMEOUT,
-        )
+        Parameters
+        ----------
+        url
+            URL base del servicio.
+        params
+            Parámetros GET.
 
-        response.raise_for_status()
+        Returns
+        -------
+        str
+            HTML descargado.
 
-        print("\n================= DEBUG HTTP =================")
-        print("URL               :", response.url)
-        print("Status            :", response.status_code)
-        print("Content-Type      :", response.headers.get("Content-Type"))
-        print("Header encoding   :", response.encoding)
-        print("Apparent encoding :", response.apparent_encoding)
-        print("Primeros bytes    :", response.content[:80])
-        print("==============================================")
+        Raises
+        ------
+        RuntimeError
+            Si la descarga falla o la respuesta no parece una página HTML.
+        """
 
-        # Dejamos que requests haga la decodificación.
-        return response.text
+        try:
+            response = self.session.get(
+                url,
+                params=params,
+                timeout=TIMEOUT,
+            )
+
+            response.raise_for_status()
+
+        except requests.RequestException as exc:
+            raise RuntimeError(
+                f"Error descargando datos del SIMA ({url}) con parámetros {params}."
+            ) from exc
+
+        html = response.text
+
+        if "<html" not in html.lower():
+            raise RuntimeError(
+                "La respuesta recibida no parece una página HTML válida del SIMA."
+            )
+
+        return html
 
     def get_municipality(self, municipality_code: str) -> str:
+        """
+        Descarga la ficha municipal del SIMA.
+
+        Parameters
+        ----------
+        municipality_code
+            Código INE del municipio.
+
+        Returns
+        -------
+        str
+            HTML de la ficha municipal.
+        """
+
+        municipality_code = str(municipality_code).zfill(5)
 
         return self._download(
             MUNICIPAL_URL,
@@ -53,6 +91,21 @@ class SIMADownloader:
         )
 
     def get_nuclei(self, municipality_code: str) -> str:
+        """
+        Descarga la ficha de entidades de población del municipio.
+
+        Parameters
+        ----------
+        municipality_code
+            Código INE del municipio.
+
+        Returns
+        -------
+        str
+            HTML de la ficha de entidades de población.
+        """
+
+        municipality_code = str(municipality_code).zfill(5)
 
         return self._download(
             NUCLEI_URL,
