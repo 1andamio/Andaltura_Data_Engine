@@ -1,0 +1,12 @@
+"""
+Sistema de exportación.
+
+Este paquete define la infraestructura para convertir el modelo
+interno de Primer en distintos formatos de salida.
+"""
+
+from .exporter import BaseExporter
+
+__all__ = [
+    "BaseExporter",
+]
