@@ -1,0 +1,748 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" id="myHTML">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta name="Author" content="Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a" />
+	<meta name="Description" content="ordenación del territorio, urbanismo, cartografía, vivienda, arquitectura, planificación, carreteras, transportes, puertos, metro, Andaluc&iacute;a, Junta de Andaluc&iacute;a, nomenclátor, nombres, geográficos, buscador, Servicio Web" />
+	<meta name="Distribution" content="Global" />
+	<meta name="Robots" content="All" />
+
+	<title>Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a - Junta de Andaluc&iacute;a</title>
+	<link rel="shortcut icon" href="www/layouts/icons/favicon.ico" />	
+	<link type="text/css" href="www/layouts/css/estilo.css" rel="stylesheet"/>
+	<link type="text/css" href="www/layouts/css/form.css" rel="stylesheet"/>
+	<link type="text/css" href="css/estil.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="css/draggable.css"/>
+        
+        <!-- MAPEA -->
+        <!-- fichero estilos -->
+        <link href="https://mapea4-sigc.juntadeandalucia.es/assets/css/mapea.ol.min.css" rel="stylesheet" />
+
+        <!-- ficheros javascript -->
+        <script type="text/javascript" src="https://mapea4-sigc.juntadeandalucia.es/js/mapea.ol.min.js"></script>
+        <script type="text/javascript" src="https://mapea4-sigc.juntadeandalucia.es/js/configuration.js"></script>
+        <script type="text/javascript" src="js/mapea/mapea-templates-fix.js"></script>
+        <script type="text/javascript" src="https://mapea4-sigc.juntadeandalucia.es/plugins/printer/printer.ol.min.js"></script>
+        <link rel="stylesheet" href="https://mapea4-sigc.juntadeandalucia.es/plugins/printer/printer.min.css"/>
+        
+	<!--  Prototype Window Class Part -->
+	<script type="text/javascript" src="prototype/js/prototype.js"> </script> 
+	<script type="text/javascript" src="prototype/js/effects.js"> </script>
+	<script type="text/javascript" src="prototype/js/window.js"> </script>
+	<script type="text/javascript" src="prototype/js/window_effects.js"> </script>
+
+	<link href="prototype/themes/default.css" rel="stylesheet" type="text/css" ></link>
+	<link href="prototype/themes/nomenclator.css" rel="stylesheet" type="text/css" ></link>
+	<style type="text/css">fieldset{ padding: 1em;}</style>
+
+	<!--TAB-->
+	<link type="text/css" href="css/tabber.css" rel="stylesheet"/>
+	<script src="js/tabber.js" type="text/javascript"></script>
+
+	<script src="js/xmlhttp.js" type="text/javascript"></script>
+        
+        <script type="text/javascript">
+            arrayMax=new Array();
+            arrayMin=new Array();
+            arrayURL=new Array();
+            arrayCapa=new Array();
+    
+            arrayMax=[6472000.0,1200000.0,500000.0,200000.0,100000.0,20000.0,10000.0];
+            arrayMin=[1200001.0,500001.0,200001.0,100001.0,20001.0,10001.0,501.0];
+            arrayURL=["https://www.ideandalucia.es/services/DERA_g2_infra_geografica/wms?SERVICE=WMS&","https://www.ideandalucia.es/wms/mta100v_2005?service=wms&","https://www.ideandalucia.es/wms/dea100?SERVICE=WMS&","https://www.ideandalucia.es/wms/dea100?SERVICE=WMS&","https://www.ideandalucia.es/wms/dea100?SERVICE=WMS&","https://www.ideandalucia.es/wms/dea100?SERVICE=WMS&","https://www.ideandalucia.es/wms/mta10v_2007?SERVICE=WMS&","https://www.ideandalucia.es/wms/mta10v_2007?SERVICE=WMS&"];
+            arrayCapa=["Niveles_Batimetricos,Regiones_y_Paises,Limites_Provinciales,Nucleos_de_Poblacion","intervalos_batimetricos,autopista_autovia,nucleos_de_poblacion,zonas_industriales,rios,laminas_de_agua","intervalos_batimetricos,autopista_autovia,nucleos_de_poblacion,zonas_industriales,puertos_pol,aeropuertos_pol,rios,laminas_de_agua,ferrocarriles","intervalos_batimetricos,autopista_autovia,nucleos_de_poblacion,Zonas_verdes_urbanas,zonas_industriales,campos_golf,puertos_pol,aeropuertos_pol,rios,laminas_de_agua,carretera_convencional,ferrocarriles","intervalos_batimetricos,autopista_autovia,nucleos_de_poblacion,manzanas,edificicaciones_singulares,Zonas_verdes_urbanas,zonas_industriales,campos_golf,puertos_pol,aeropuertos_pol,rios,arroyos,canos,laminas_de_agua,carretera_convencional,otras_carreteras,ferrocarriles,red_electrica_de_transporte,toponimia_nucleo_secundario,toponimia_arroyos,toponimia_otros_nucleos","Manzanas,Edificios,Otros_Poligonales_de_Edificios,Otros_Lineales_de_Edificios,Edificios_Singulares,Jardines_y_Campos_de_Golf,Masas_Arboreas,Superficie_de_Agua,Red_Hidrografica,Elementos_Puntuales_de_Infraestructura_Hidraulica,Elementos_Poligonales_de_Infraestructura_Hidraulica,Conducciones_y_otros_elementos,Elementos_Lineales_de_Infraestructura_Energetica,Elementos_Puntuales_de_Infraestructura_Energetica,pkm,Caminos,Carreteras,Ferrocarriles,Calles,Otros_Elementos_Lineales,Taludes,Cotas,curvas,Toponimia_General,Limites_Provinciales_lineal,Limites_Municipales_lineal","Manzanas,Edificios,Otros_Poligonales_de_Edificios,Otros_Lineales_de_Edificios,Edificios_Singulares,Jardines_y_Campos_de_Golf,Masas_Arboreas,Superficie_de_Agua,Red_Hidrografica,Elementos_Puntuales_de_Infraestructura_Hidraulica,Elementos_Poligonales_de_Infraestructura_Hidraulica,Conducciones_y_otros_elementos,Elementos_Lineales_de_Infraestructura_Energetica,Elementos_Puntuales_de_Infraestructura_Energetica,pkm,Caminos,Carreteras,Ferrocarriles,Calles,Otros_Elementos_Lineales,Taludes,Cotas,curvas,Toponimia_General,Limites_Provinciales_lineal,Limites_Municipales_lineal"];           
+        </script>
+
+		<!-- MAIN  -->
+        <script src="js/mainFunctions.js" type="text/javascript"></script>
+        <!-- MAP -->
+        <script src="js/debugger.js" type="text/javascript" ></script>
+        <script src="js/genlibsubset_draggable.js" type="text/javascript"></script>
+        <script src="js/draggable.js" type="text/javascript" ></script>
+        <script src="js/config.js" type="text/javascript"></script>
+        <script src="js/browser.js" type="text/javascript"></script>
+        <script src="js/ajax.js" type="text/javascript" ></script>
+        
+        <!-- Component DROPDOWN -->
+        <script type="text/javascript" src="js/CDropdown.js"></script>
+
+        <script type="text/javascript">
+          //<![CDATA[
+
+            // Array with events lo execute at body.onLoad()
+            var initEvents = new Array();
+
+            var coords=[];
+            var ids=[];
+	
+            var url=arrayURL[0];
+            var capa=arrayCapa[0]; 
+         
+            // loop through all the items in the init array and execute any functions
+            function onLoadEvents(initEventsArray){
+                centreMapa="";
+                escala="";
+                
+                for( var i=0; i < initEventsArray.length; i++ ){
+                    if( typeof initEventsArray[i] == "function" ) initEventsArray[i]();
+                }
+            }
+
+            // Initialization of map
+            function loadMap() {
+            	M.config('PROXY_POST_URL', 'https://mapea4-sigc.juntadeandalucia.es/mapea/api/proxy');
+        	    M.config('PROXY_URL', 'https://mapea4-sigc.juntadeandalucia.es/mapea/api/proxy');
+            	configureMapeaTemplates();
+            	preloadMapeaTemplates(function () {
+            		mapajs = M.map({
+                	container:"mapea",
+                	controls:['Panzoombar','scale','scaleline','layerswitcher'],
+                	wmcfiles: ['https://www.ideandalucia.es/nomenclator/mapConfig/vectorial.xml*Vectorial',
+                          'https://www.ideandalucia.es/nomenclator/mapConfig/raster.xml*Raster',
+                          'https://www.ideandalucia.es/nomenclator/mapConfig/ortofoto.xml*Ortofoto']
+                        });
+
+                	capaGeoJSON = new M.layer.GeoJSON({
+                    	source: {
+                      		"crs": {"properties": {"name": "EPSG:25830"},"type": "name"},
+                      		// Se añade su notacion GeoJSON
+                      		"features": [],
+                      		"type": "FeatureCollection"
+                    	},
+                    	name: 'POIs',
+                    	extract: false
+              		});
+
+                	let estilo = new M.style.Point({
+                       	fill: {
+                       	color: '#30adff',
+                       	opacity: 0
+                       	},
+                       	stroke: {
+                       	color: '#4071c3',
+                       	width: 2
+                       	},
+                       	radius: 6
+              		});
+
+              		capaGeoJSON.setStyle(estilo);
+              		mapajs.addLayers(capaGeoJSON);
+              
+              		configureMapeaPrinter();
+              		mapajs.addPlugin(new M.plugin.Printer({
+            	  		"params": {
+            	    		"pages": {
+            	      			"creditos": "Impresión generada a través del Buscador de nombres geográficos"
+            	    		},
+            	    		"layout": {
+            	      			"outputFilename": "mapea_${yyyy-MM-dd_hhmmss}"
+            	    		},
+            	  		},
+            	  		'options': {
+            	      		'layout': 'imagen apaisada',
+            	      		'format': 'pdf',
+            	      		'dpi': '127'
+            	    		} 
+          			}));
+            	});
+			}
+			
+			arrayCoord= new Array();
+			arrayTitol= new Array();
+			arrayIndex= new Array();
+
+			function cargaPoi(coord,nomEnt,titulo,id) {
+
+				try {
+					var aux=arrayCoord.length;
+					
+					arrayCoord[aux]=coord;
+					arrayTitol[aux]=nomEnt+" ("+titulo+")";
+					arrayIndex[aux]=id;
+					titulo=nomEnt+" ("+titulo+")";
+					var valor=coord.split(",");			
+					coords.push(coord);
+                	ids.push(id);
+					var poiEnviar=valor[0]+","+valor[1];
+					document.print.pois.value=document.print.pois.value+"|"+poiEnviar;
+				}catch (e) {}
+			}
+
+			function dibuixaPois() {
+
+			   try {
+                        for (var i=0; i < coords.length; i++) {
+                        var valor=coords[i].split(",");
+                              var miFeature = new M.Feature(ids[i], {
+                                  "type": "Feature",
+                                  "geometry": {
+                                  "type": "Point",
+                                  "coordinates": [parseFloat(valor[0]),parseFloat(valor[1])
+                                  ]
+                                  }
+                              });
+                            capaGeoJSON.addFeatures(miFeature);
+                          }
+                          if (coords.length == 1) mapajs.setZoom(10);
+				}catch (e) {}
+			}
+
+			function remarcarPoi(coord,nomEnt,titulo, id) {
+                        try {
+                            let estiloRemarc = new M.style.Point({
+                                        fill: {
+                                        color: '#ea9a00',
+                                        opacity: 0
+                                        },
+                                        stroke: {
+                                        color: '#ff6000',
+                                        width: 2
+                                        },
+                                        radius: 6
+
+                             });
+
+                            let estilo = new M.style.Point({
+                                        fill: {
+                                        color: '#30adff',
+                                        opacity: 0
+                                        },
+                                        stroke: {
+                                        color: '#4071c3',
+                                        width: 2
+                                        },
+                                        radius: 6
+                             });
+
+                            var idFeature = ids;
+                            var feature = capaGeoJSON.getFeatures();
+
+                            for (var i=0; i < idFeature.length; i++){
+                                if(idFeature[i]==id){
+                                feature[i].setStyle(estiloRemarc);
+                                }else{
+                                feature[i].setStyle(estilo);      
+                                }
+                            }
+				}catch (e) {}
+		}
+
+		var pas="0";
+        function extent() {
+                
+			// centers map to full extent
+	        var elemCoord=coordInicial.split(" ");
+			var elemCoord1=elemCoord[0].split(",");		var elemCoord2=elemCoord[1].split(",");    
+	
+			var c1=parseFloat(elemCoord1[0]);		var c2=parseFloat(elemCoord1[1]);
+			var c3=parseFloat(elemCoord2[0]);		var c4=parseFloat(elemCoord2[1]);            
+            
+            mapajs.setBbox([c1,c2,c3,c4]);
+        }
+
+		initEvents[initEvents.length] = loadMap;
+		//FIN MAPA	
+		
+		function clickSiguente(cadena){
+			var escala=mapajs.getZoom();
+			var aux=escala.toString();
+			var centreMapa=mapajs.getCenter();
+			var auxEscala=aux.split(".");
+			if(auxEscala[0]!="4716270")cadena=cadena+"&escala="+escala+"&centreMapa="+encodeURI(centreMapa);//scala extensión inicial (4716270)
+
+			document.location=cadena;
+		}
+		
+		function Enviar()    {
+			var lang='esp'
+			window.location = 'buscador.jsp?lang='+lang+'&re=1';
+		}        
+		
+		function Enviar1()    {
+			var lang='esp'
+			window.location = 'buscador.jsp?lang='+lang;
+		}
+		
+		function traductor1(){
+
+			value="Entidad:";
+			target=document.getElementById('entidad');            
+			if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+				var textNode=document.createTextNode(value);
+				target.appendChild(textNode);
+			} else target.firstChild.nodeValue=value;
+						
+			value="Anterior";
+			target=document.getElementById('anterior');     
+			if(target!=null){
+				if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+					var textNode=document.createTextNode(value);
+					target.appendChild(textNode);
+				} else target.firstChild.nodeValue=value;
+			}
+			
+			 value="Siguiente";
+			target=document.getElementById('siguiente');     
+			if(target!=null){
+				if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+					var textNode=document.createTextNode(value);
+					target.appendChild(textNode);
+				} else target.firstChild.nodeValue=value;
+			}
+			
+			value="Tipo:";
+			target=document.getElementById('tipo_entidad');            
+			if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+				var textNode=document.createTextNode(value);
+				target.appendChild(textNode);
+			} else target.firstChild.nodeValue=value;
+
+			value="Puede descargar las localizaciones de la entidad";
+			target=document.getElementById('Puede_descargar_las_localizaciones_de_la_entidad');            
+			if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+				var textNode=document.createTextNode(value);
+				target.appendChild(textNode);
+			} else target.firstChild.nodeValue=value;
+			target.title=value;
+			target.alt=value;
+
+			var str1="";
+			str1="Denominaciones de la entidad";
+			val1=document.getElementById('Denominaciones');
+			val1.innerHTML= str1;
+
+			strl="";
+			str1="Localizaciones de la entidad";
+			val1=document.getElementById('Localizaciones');
+			val1.innerHTML= str1;
+
+			strl="";
+			if(coordenada=="" || coordenada==null || coordenada=="0"){
+				value="Resultados de la búsqueda";
+				strl+='<input class="button" type="button" onclick="javascript:window.location=&#34;enlace.jsp?lang=esp&#34;;" value="'+value+'" /> ';
+			}else{
+				value="Volver";
+				strl+='<input class="button" type="button" onclick="javascript:window.location=&#34;enlace.jsp?lang=esp&#34;;" value="'+value+'" /> ';            
+			}            
+
+			value="Modificar consulta";
+			strl+='<input class="button" type="button" onclick="javascript:Enviar();" value="'+value+'" /> ';
+			value="Nueva consulta";
+			strl+='<input class="button" type="button" onclick="javascript:Enviar1();" value="'+value+'" /> ';
+
+			val=document.getElementById('enlaces');	
+			val.innerHTML= strl;
+
+			
+			value="Rectificar topónimos";
+			target=document.getElementById('rectificar_concreta');
+			if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+				var textNode=document.createTextNode(value);
+				target.appendChild(textNode);
+			} else target.firstChild.nodeValue=value;
+		}       
+
+		window.onresize=funcion;
+		function funcion(){
+			map.recalculateAbsolutePosition();
+		}
+
+		var winPrototype=null;
+		function ampliarMapa(){
+			document.getElementById('myBody').style.overflow='hidden';
+			document.getElementById('myHTML').style.overflow='hidden';
+			window.scrollTo(0,0);
+
+			winPrototype= new Window({className: "nomenclator", width:0, height:0, zIndex: 1000, resizable: false, title: "", draggable:false, showEffect:Element.show, hideEffect:Element.hide, recenterAuto:true, wiredDrag: false});
+
+			var urlActual=this.location.toString();
+			var arraySepararUrl = urlActual.split("?");
+			var separarUrl = arraySepararUrl[1]
+			if(separarUrl=="undefined" || typeof(separarUrl)=='undefined')separarUrl='lang=esp"';
+			var urlIframe="ampliarMapaEntidadConcreta.jsp?"+separarUrl;
+
+			winPrototype.getContent().innerHTML = '<iframe name="mapaGrande" id="mapaGrande" class="iframeMG" scrolling="none" frameborder="0" src="'+urlIframe+'"><\/iframe>';//obj.innerHTML;
+
+			winPrototype.setLocation(0,0);
+			winPrototype.show();
+			winPrototype.setConstraint(true, {left:0, right:0, top: 10, bottom:10})
+			winPrototype.maximize();
+		}
+
+		window.onresize= reloadAmpliarMapa;
+		function reloadAmpliarMapa(){
+			if(winPrototype!=null) {
+
+				winPrototype.maximize();
+
+				var protW=winPrototype.width;
+				var protH=winPrototype.height;
+
+				if(window.frames["mapaGrande"].windowResizeMapaGran!="undefined" && typeof(window.frames["mapaGrande"].windowResizeMapaGran)!='undefined'){
+					window.frames["mapaGrande"].windowResizeMapaGran(protW,protH);
+				}
+			}
+		}
+		
+		function cargarBotonAmpliarMapa(){
+    		var divAmpliar = document.getElementById("ampliarMapa");
+    		var divPadre = document.getElementsByClassName("m-left");
+    		for(var i = 0; i < divPadre.length; i++){
+    		   if(divPadre.item(i).className.includes("m-top")){
+    			   divPadre.item(i).appendChild(divAmpliar);
+    			   divAmpliar.style.display = 'block';
+    	  		}
+    		}
+    	}
+                
+        setTimeout(function(){ dibuixaPois(); }, 500);
+        setTimeout(function(){ extent(); }, 400);
+
+	//]]>
+	</script>
+	</head>
+
+	<body id="myBody" onload="javascript: onLoadEvents(initEvents);traductor1();cargarBotonAmpliarMapa()">
+	
+		<div id="header">
+			<div class="header">
+		<div class="subheader">
+			<img usemap="#MapTitular" alt="Instituto de EstadÃ­stica y CartografÃ­a de AndalucÃ­a" src="img/header-nomenclator.png" style="width: 1000px; height: 154px;"/>
+			<map name="MapTitular" id="MapTitular">
+				<area shape="rect" coords="13,10,90,80" href="https://www.juntadeandalucia.es" title="Junta de Andaluc&iacute;a" alt="Junta de Andaluc&iacute;a" />
+				<area shape="rect" coords="110,29,650,74" href="https://www.juntadeandalucia.es/institutodeestadisticaycartografia" title="Instituto de Estadï¿½stica y Cartografï¿½a de Andalucï¿½a" alt="Instituto de Estadï¿½stica y Cartografï¿½a de Andalucï¿½a" />
+			</map>
+	
+			<div class="toolbar">				
+			</div>
+			
+			<div class="search">
+			</div>
+			
+			<div class="inicio">			
+			</div>
+		</div>
+	</div>
+
+		</div>
+	
+		<div id="wrapper-main-full" >
+			<div id="content-full2" >
+				<h1 style="display: flex; justify-content: space-between; align-items: center;">
+					<span>Buscador de nombres geográficos</span>
+					<span>v.4.0.0
+</span>
+				</h1>
+				<h2>Datos de búsqueda:</h2>
+				<form name="evalua" action="enlace.jsp"  method="post" class="sinPaddingMargin">
+				<script xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" type="text/javascript">
+		var coordInicial="418681.09,4144911.43 418681.09,4144911.43";
+	</script>
+<script xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" type="text/javascript">
+		initEvents[initEvents.length] = function() {
+			cargaPoi('418681.09,4144911.43', 'Abrevadero Fuente de Granada','Alcal&aacute; la Real', '251653');
+		};
+		</script>
+<script xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" type="text/javascript">
+		initEvents[initEvents.length] = function() {
+
+		}
+	</script>
+<div xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" style="display: flex; align-items: flex-start;">
+<div style="flex: 1;">
+<div>
+<b>
+<a title="Entidad" id="entidad">Entidad</a>
+</b>Abrevadero Fuente de Granada
+				(ES.ES61.NGA.1151)
+			</div>
+<div>
+<b>
+<a title="Tipo" id="tipo_entidad">Tipo</a>
+</b>Obra Hidr&aacute;ulica
+					&nbsp;
+					<a title="Cat&aacute;logo de Entidades" class="enlace_descargable" href="metadatos/Catalogo.pdf">Cat&aacute;logo de Entidades</a>
+<br/>Fuente:: Nomenclator Geografico de Andalucia</div>
+<div>
+<a title="Descarga localizaciones" id="Puede_descargar_las_localizaciones_de_la_entidad" class="enlace" onclick="javascript:descargarLocalizaciones();" href="#">
+					Puede descargar la localizaciones de la entidad
+				</a>
+</div>
+</div>
+<div style="flex: 0 0 auto; margin-left: auto; display: flex; gap: 10px;">
+<button style="display: none;" disabled="disabled" type="button">Datos curiosos</button>
+<button style="display: none;" disabled="disabled" type="button">Im&aacute;genes</button>
+</div>
+</div>
+<script xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" type="text/javascript">
+		function descargarLocalizaciones(){
+			document.evalua4.textB.value="ES.ES61.NGA.1151";
+			document.evalua4.opcion.value="3";
+			document.evalua4.numeroElementos.value="1";
+			document.evalua4.submit();
+		}
+	</script>
+<div xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" class="aliniacionDerecha" id="Denominaciones"> &nbsp; </div>
+<table xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" class="m1" cellspacing="0" cellpadding="0" width="100%" summary="Denominaciones de la entidad">
+<caption>Denominaciones de la entidad</caption>
+<colgroup>
+<col/>
+<col/>
+<col/>
+<col/>
+<col/>
+<col/>
+<col width="300px"/>
+</colgroup>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Idioma </th>
+<th>Clase </th>
+<th>Estatus</th>
+<th>Versi&oacute;n</th>
+<th>Pronunciaci&oacute;n AFI</th>
+<th>Etimolog&iacute;a</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abrevadero Fuente de Granada</td>
+<td>
+							espa&ntilde;ol
+							</td>
+<td>Preferente</td>
+<td>Normalizado</td>
+<td>2015-01-15</td>
+<td/>
+<td style="position: relative;"/>
+</tr>
+</tbody>
+</table>
+<div xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0">
+<input name="coordenada" value="0" type="hidden"/>
+<input name="final" value="10" type="hidden"/>
+<input name="inicial" value="1" type="hidden"/>
+<input name="suma" value="0" type="hidden"/>
+</div>
+<div xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" class="aliniacionDerecha" id="Localizaciones"> &nbsp; </div>
+<table xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" border="0" cellspacing="0" cellpadding="0" summary="Localizaciones de la entidad" class="m1">
+<caption>Localizaciones de la entidad</caption>
+<colgroup>
+<col/>
+<col/>
+<col/>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<thead>
+<tr>
+<th colspan="2">Entidad local</th>
+<th colspan="2">Mapa</th>
+<th>Posici&oacute;n espacial</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th width="20%">Provincia</th>
+<th width="20%">Municipio (INE)</th>
+<th width="10%">Serie</th>
+<th width="10%">Hoja</th>
+<th>Coordenadas</th>
+<th width="5%">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;418681.09,4144911.43&quot;, &quot;Abrevadero Fuente de Granada&quot;,&quot;Alcal&aacute; la Real&quot;, &quot;251653&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;">
+<td>Ja&eacute;n</td>
+<td>Alcal&aacute; la Real    
+				    (23002)</td>
+<td>MTA10</td>
+<td>099042</td>
+<td>418681.09,4144911.43</td>
+<td>
+<a onclick="javascript:sesion();" title="Buscar top&oacute;nimos cercanos en 5 Km." class="cursorP">
+<img height="15" width="15" src="img/lupa.gif" alt="Buscar top&oacute;nimos cercanos en 5 Km." onmouseover="idiomaAlt(this.id);" id="lupa251653"/>
+</a>
+<script type="text/javascript">
+						function idiomaAlt(elem){
+							document.getElementById(elem).title="Buscar topónimos cercanos en 5 Km.";
+						}
+
+						function sesion(){
+							document.evalua3.coordenada.value="418681.09,4144911.43";
+							document.evalua3.inicial.value="1";
+							document.evalua3.final.value="10";
+							document.evalua3.suma.value="0";
+							document.evalua3.cercanos.value="ok";
+							document.evalua3.submit();
+						}
+					</script>
+</td>
+</tr>
+</tbody>
+</table>
+<script xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" type="text/javascript">
+             var coordenada=""
+        </script>
+<div xmlns="http://www.opengis.net/wfs-g" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gn="urn:x-inspire:specification:gmlas:GeographicalNames:3.0" class="saltoLinia">
+<div id="indice">
+                        &nbsp;Entidad con&nbsp;1&nbsp;localizaci&oacute;n.</div>
+</div>
+
+				</form>
+				<br/>
+
+				<form name="evalua2"  action="form.jsp?pare=2&amp;opcion=1&amp;lang=esp"  method="post" >
+
+				<div class="espacioIzqMapaEnlace">
+					<div class="campo">
+                        <div id="mapea" class="mapaBusquedaConcreta"></div>
+                        <div id="ampliarMapa" class="m-panel m-tools opened no-collapsible" style="display: none">   
+							<div class="m-panel-controls">
+   								<div class="m-control">    								
+    								<button id="ampliar-button" type="button" class="g-cartografia-tamano" title="Ampliar Mapa" onclick="javascript: ampliarMapa();"></button>
+    							</div>
+							</div>
+						</div>
+					</div>
+
+					<br/>
+
+					<div class="fila">	
+						Puede hacer propuestas de rectificación accediendo al formulario de
+						<a class="enlace" title="Formulario rectificación" onmouseout="javascript:this.style.textDecoration='underline';" onmouseover="javascript:this.style.textDecoration='none';" href="#" onclick="document.evalua2.submit();" id="rectificar_concreta"></a>
+					</div>
+
+					<div class="fila">	
+						<div class="campo pag-completa">
+							<fieldset>
+								<span id="enlaces" >  </span>
+							</fieldset> 
+						</div>
+					</div>
+
+					<div class="fila">
+						<div class="campo pag-completa aliniacionCentro">
+							<a class="descargable" title="Ayuda" target="_self" href="metadatos/Ayuda.pdf">
+								Ayuda
+							</a>&nbsp;-
+							<a class="descargable" title="Metadatos" target="_self" href="metadatos/Metadatos.pdf">
+								Metadatos
+							</a>&nbsp;-
+							<a class="descargable" title="Catálogo de Entidades" target="_self" href="metadatos/Catalogo.pdf">
+								Catálogo de Entidades
+							</a>&nbsp;- 
+							<a class="link1" title="Rectificar topónimos" href="form.jsp?pare=2&amp;opcion=1&amp;lang=esp">
+								Rectificar topónimos 
+							</a>&nbsp;-
+							<a class="link1" title="Correo / Sugerencias" href="form.jsp?pare=2&amp;opcion=0&amp;lang=esp">
+								Correo / Sugerencias
+							</a>
+						</div>
+					</div>
+
+					<div id="fila">
+						<div class="campo pag-completa">
+							<div class="footer-full-Modif" id="navHorizontalContainer">
+<div class="footer">
+	<div id="footer-full_IECA" style="height: 30px; margin: 15px auto 0; text-align: justify; width: 255px;" >
+		<a href="https://www.juntadeandalucia.es/institutodeestadisticaycartografia">Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a</a>
+		<!-- Eliminados IECA--> 
+		<!--
+		<a href="www/jsp/estatica.jsp?e=misc/accesibilidad.html">Accesibilidad</a> &nbsp;|&nbsp; 
+		<a href="www/jsp/estatica.jsp?e=misc/requisitos_tecnicos.html">Requisitos</a>
+		-->
+		<!--footer-->
+	</div>
+</div>
+
+</div>
+						</div>
+					</div>
+					<br/>
+				</form>
+			</div>
+
+		<form name="evalua3" action="enlace.jsp?lang=esp"  method="post" >
+			<div>
+				<input type="hidden" value="ok"  name="cercanos"/>
+				<input type="hidden" value="0" name="coordenada"/>			<input type="hidden" value="0" name="inicial"/>
+				<input type="hidden" value="0" name="suma"/>				<input type="hidden" value="0" name="final"/>
+				<input type="hidden" value="" name="result"/>				<input type="hidden" value="" name="textB"/>
+				<input type="hidden" value="" name="elementoSeleccionado"/>	<input type="hidden" value="" name="muniSeleccionado"/>
+				<input type="hidden" value="" name="seleccioProv"/>			<input type="hidden" value="" name="nombreMuni"/>
+				<input type="hidden" value="" name="nombreProv"/>			<input type="hidden" value="" name="campProvMuni"/>
+				<input type="hidden" value="" name="coord1"/>				<input type="hidden" value="" name="coord2"/>
+				<input type="hidden" value="" name="coord3"/>				<input type="hidden" value="" name="coord4"/>
+				<input type="hidden" value="" name="campMapa"/>				<input type="hidden" name="proviene" value="2"/>
+				<select multiple="multiple" class="sinW" name="envioEntidades">
+					<option value="-1" selected="selected">&nbsp;</option>
+				</select>
+			</div>
+		</form>
+		<form name="evalua4" action="form.jsp?lang=esp"  method="post" >        
+			<div>
+				<input type="hidden" value="0" name="textB"/>              <input type="hidden" value="0" name="opcion"/>
+				<input type="hidden" value="0" name="numeroElementos"/>    <input type="hidden" value="2" name="pare"/> 
+			</div>
+		</form>
+		</div>
+    
+    <!-- Popup para Pronunciación y Etimología -->
+    <div id="popupOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;" onclick="cerrarPopup()"></div>
+    <div id="popupContenido" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); max-width: 600px; max-height: 400px; overflow-y: auto; z-index: 10000;">
+        <h3 id="popupTitulo" style="margin-top: 0; border-bottom: 2px solid #4CAF50; padding-bottom: 10px;"></h3>
+        <p id="popupTexto" style="margin: 15px 0; line-height: 1.6; word-wrap: break-word;"></p>
+        <button onclick="cerrarPopup()" style="margin-top: 15px; padding: 8px 20px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">Cerrar</button>
+    </div>
+    
+    <script>
+        function mostrarPopup(titulo, texto) {
+            document.getElementById('popupTitulo').textContent = titulo;
+            document.getElementById('popupTexto').textContent = texto;
+            document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('popupContenido').style.display = 'block';
+        }
+        
+        function cerrarPopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('popupContenido').style.display = 'none';
+        }
+        
+        // Cerrar con tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                cerrarPopup();
+            }
+        });
+    </script>
+    
+    <!-- Modal del carrusel de imágenes -->
+	<div id="carouselModal" style="display: none; position: fixed; z-index: 1000; inset: 0; background-color: rgba(17,24,39,0.88); backdrop-filter: blur(4px);">
+		<button type="button" onclick="closeCarousel()" style="position: absolute; top: 20px; right: 24px; color: #ffffff; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); width: 44px; height: 44px; border-radius: 9999px; font-size: 26px; line-height: 40px; text-align: center; cursor: pointer;">×</button>
+		<div style="position: relative; margin: 0 auto; width: min(96vw, 980px); height: 100%; display: flex; align-items: center; justify-content: center; padding: 60px 16px; box-sizing: border-box;">
+			<img id="carouselImage" src="" style="max-width: 100%; max-height: calc(100vh - 160px); border-radius: 10px; display: block; box-shadow: 0 20px 50px rgba(0,0,0,0.45); transition: opacity 0.25s ease; opacity: 1;"/>
+			<button id="carouselPrev" type="button" onclick="changeImage(-1)" style="cursor: pointer; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.35); background-color: rgba(0,0,0,0.35); color: #fff; font-size: 24px; line-height: 40px;">‹</button>
+			<button id="carouselNext" type="button" onclick="changeImage(1)" style="cursor: pointer; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.35); background-color: rgba(0,0,0,0.35); color: #fff; font-size: 24px; line-height: 40px;">›</button>
+			<div id="imageCounter" style="position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); color: #fff; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.2); border-radius: 9999px; padding: 6px 12px; font-size: 13px;"></div>
+		</div>
+	</div>
+
+	<!-- Script para audio y carousel -->
+    <script type="text/javascript" src="js/mediaInteractions.js"></script>
+
+    <!-- Google Analytics 4 -->
+    <script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-66XBYF7056"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-66XBYF7056');
+    </script>
+    
+	</body>
+</html>
+
