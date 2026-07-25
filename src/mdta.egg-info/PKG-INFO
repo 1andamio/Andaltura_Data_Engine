@@ -1,5 +1,5 @@
 Metadata-Version: 2.4
 Name: mdta
 Version: 0.1.0
-Summary: Andaltura Data Engine
-Requires-Python: >=3.11
+Summary: Modelo de Datos Territoriales Andaltura
+Requires-Python: >=3.14

@@ -1,0 +1,753 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" id="myHTML">
+  <head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta name="Author" content="Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a" />
+		<meta name="Description" content="ordenación del territorio, urbanismo, cartografía, vivienda, arquitectura, planificación, carreteras, transportes, puertos, metro, Andaluc&iacute;a, Junta de Andaluc&iacute;a, nomenclátor, nombres, geográficos, buscador, Servicio Web" />
+		<meta name="Distribution" content="Global" />
+		<meta name="Robots" content="All" />
+
+        <title>Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a - Junta de Andaluc&iacute;a</title>
+		<link rel="shortcut icon" href="www/layouts/icons/favicon.ico" />	
+        <link type="text/css" href="www/layouts/css/estilo.css" rel="stylesheet"/>
+        <link type="text/css" href="css/estil.css" rel="stylesheet"/>
+        <link type="text/css" href="www/layouts/css/form.css" rel="stylesheet"/>	
+        <link rel="stylesheet" type="text/css" href="css/draggable.css"/>
+	<script src="js/xmlhttp.js" type="text/javascript"></script>
+     
+        <script type="text/javascript" >
+            arrayMax=new Array();            arrayMin=new Array();
+            arrayURL=new Array();            arrayCapa=new Array();
+    
+            arrayMax=[6472000.0,1200000.0,500000.0,200000.0,100000.0,20000.0,10000.0];
+            arrayMin=[1200001.0,500001.0,200001.0,100001.0,20001.0,10001.0,501.0];
+            arrayURL=["https://www.ideandalucia.es/services/DERA_g2_infra_geografica/wms?SERVICE=WMS&","https://www.ideandalucia.es/wms/mta100v_2005?service=wms&","https://www.ideandalucia.es/wms/dea100?SERVICE=WMS&","https://www.ideandalucia.es/wms/dea100?SERVICE=WMS&","https://www.ideandalucia.es/wms/dea100?SERVICE=WMS&","https://www.ideandalucia.es/wms/dea100?SERVICE=WMS&","https://www.ideandalucia.es/wms/mta10v_2007?SERVICE=WMS&","https://www.ideandalucia.es/wms/mta10v_2007?SERVICE=WMS&"];
+            arrayCapa=["Niveles_Batimetricos,Regiones_y_Paises,Limites_Provinciales,Nucleos_de_Poblacion","intervalos_batimetricos,autopista_autovia,nucleos_de_poblacion,zonas_industriales,rios,laminas_de_agua","intervalos_batimetricos,autopista_autovia,nucleos_de_poblacion,zonas_industriales,puertos_pol,aeropuertos_pol,rios,laminas_de_agua,ferrocarriles","intervalos_batimetricos,autopista_autovia,nucleos_de_poblacion,Zonas_verdes_urbanas,zonas_industriales,campos_golf,puertos_pol,aeropuertos_pol,rios,laminas_de_agua,carretera_convencional,ferrocarriles","intervalos_batimetricos,autopista_autovia,nucleos_de_poblacion,manzanas,edificicaciones_singulares,Zonas_verdes_urbanas,zonas_industriales,campos_golf,puertos_pol,aeropuertos_pol,rios,arroyos,canos,laminas_de_agua,carretera_convencional,otras_carreteras,ferrocarriles,red_electrica_de_transporte,toponimia_nucleo_secundario,toponimia_arroyos,toponimia_otros_nucleos","Manzanas,Edificios,Otros_Poligonales_de_Edificios,Otros_Lineales_de_Edificios,Edificios_Singulares,Jardines_y_Campos_de_Golf,Masas_Arboreas,Superficie_de_Agua,Red_Hidrografica,Elementos_Puntuales_de_Infraestructura_Hidraulica,Elementos_Poligonales_de_Infraestructura_Hidraulica,Conducciones_y_otros_elementos,Elementos_Lineales_de_Infraestructura_Energetica,Elementos_Puntuales_de_Infraestructura_Energetica,pkm,Caminos,Carreteras,Ferrocarriles,Calles,Otros_Elementos_Lineales,Taludes,Cotas,curvas,Toponimia_General,Limites_Provinciales_lineal,Limites_Municipales_lineal","Manzanas,Edificios,Otros_Poligonales_de_Edificios,Otros_Lineales_de_Edificios,Edificios_Singulares,Jardines_y_Campos_de_Golf,Masas_Arboreas,Superficie_de_Agua,Red_Hidrografica,Elementos_Puntuales_de_Infraestructura_Hidraulica,Elementos_Poligonales_de_Infraestructura_Hidraulica,Conducciones_y_otros_elementos,Elementos_Lineales_de_Infraestructura_Energetica,Elementos_Puntuales_de_Infraestructura_Energetica,pkm,Caminos,Carreteras,Ferrocarriles,Calles,Otros_Elementos_Lineales,Taludes,Cotas,curvas,Toponimia_General,Limites_Provinciales_lineal,Limites_Municipales_lineal"];           
+        </script>
+                <!-- MAPEA -->
+                <!-- fichero estilos -->
+                <link href="https://mapea4-sigc.juntadeandalucia.es/assets/css/mapea.ol.min.css" rel="stylesheet" />
+
+                <!-- ficheros javascript -->
+                <script type="text/javascript" src="https://mapea4-sigc.juntadeandalucia.es/js/mapea.ol.min.js"></script>
+                <script type="text/javascript" src="https://mapea4-sigc.juntadeandalucia.es/js/configuration.js"></script>
+                <script type="text/javascript" src="js/mapea/mapea-templates-fix.js"></script>
+                
+		<!--  Prototype Window Class Part -->
+		<script type="text/javascript" src="prototype/js/prototype.js"> </script> 
+		<script type="text/javascript" src="prototype/js/effects.js"> </script>
+		<script type="text/javascript" src="prototype/js/window.js"> </script>
+		<script type="text/javascript" src="prototype/js/window_effects.js"> </script>
+
+		<link href="prototype/themes/default.css" rel="stylesheet" type="text/css" ></link>
+		<link href="prototype/themes/nomenclator.css" rel="stylesheet" type="text/css" ></link>
+
+		<!--TAB-->
+		<link type="text/css" href="css/tabber.css" rel="stylesheet"/>
+		<script src="js/tabber.js" type="text/javascript"></script>
+
+		<!-- MAIN  -->
+		<script src="js/mainFunctions.js" type="text/javascript" ></script>
+
+        <!-- MAP -->
+        <script src="js/debugger.js" type="text/javascript" ></script>
+        <script src="js/genlibsubset_draggable.js" type="text/javascript" ></script>
+        <script src="js/draggable.js" type="text/javascript" ></script>
+        <script src="js/config.js" type="text/javascript" ></script>
+        <script src="js/browser.js" type="text/javascript" ></script>
+        <script src="js/ajax.js" type="text/javascript" ></script>
+
+        <script type="text/javascript"  src="js/CDropdown.js"></script>
+
+        <script  type="text/javascript">       
+	    //<![CDATA[
+            // Array with events lo execute at body.onLoad()
+            var initEvents = new Array();
+
+            // Declare global map
+            var capaGeoJSON;
+            var coords=[];
+            var ids=[];
+
+            var url=arrayURL[0];
+            var capa=arrayCapa[0];       
+        
+            // Configuracions del WMS
+			var mapFormat="image/png";
+            var mapEPSG="25830";//zona
+            var mapTransparent="true";
+            
+			var pas=0;
+			
+            // loop through all the items in the init array and execute any functions
+           	function onLoadEvents(initEventsArray){
+                for( var i=0; i < initEventsArray.length; i++ ){
+                    if( typeof initEventsArray[i] == "function" ) initEventsArray[i]();
+                }
+            }
+
+            // Initialization of map
+          	function loadMap() {
+          		M.config('PROXY_POST_URL', 'https://mapea4-sigc.juntadeandalucia.es/mapea/api/proxy');
+        	    M.config('PROXY_URL', 'https://mapea4-sigc.juntadeandalucia.es/mapea/api/proxy');
+	          	configureMapeaTemplates();
+	          	preloadMapeaTemplates(function () {
+	          		mapajs = M.map({
+	          			container:"mapea",
+	          			controls:['Panzoombar','scale','scaleline','layerswitcher'],
+                                wmcfiles: ['https://www.ideandalucia.es/nomenclator/mapConfig/vectorial.xml*Vectorial',
+                                           'https://www.ideandalucia.es/nomenclator/mapConfig/raster.xml*Raster',
+                                           'https://www.ideandalucia.es/nomenclator/mapConfig/ortofoto.xml*Ortofoto']
+                                });
+	          
+	          		capaGeoJSON = new M.layer.GeoJSON({
+	              		source: {
+	                	"crs": {"properties": {"name": "EPSG:25830"},"type": "name"},
+	                	"features": [],
+	                	"type": "FeatureCollection"
+	              	},
+	              	name: 'pois',
+                      		extract: false
+	        		});
+            
+	            		let estilo = new M.style.Point({
+	                   		fill: {
+	                   		color: '#30adff',
+	                   		opacity: 0
+	                   		},
+	                   		stroke: {
+	                   		color: '#4071c3',
+	                   		width: 2
+	                   		},
+	                   		radius: 6
+	          			});
+        
+        				capaGeoJSON.setStyle(estilo);
+        				mapajs.addLayers(capaGeoJSON);
+	          	});
+        	}
+
+        arrayCoord= new Array();
+        arrayTitol= new Array();
+        arrayIndex= new Array();
+        
+        function cargaPoi(coord,titulo,id) {
+
+           try {
+                var aux=arrayCoord.length;
+                
+                arrayCoord[aux]=coord;
+                arrayTitol[aux]=titulo;
+                arrayIndex[aux]=id;
+                coords.push(coord);
+                ids.push(id);              
+            }catch (e) {}
+        }
+        
+        function dibuixaPois() {
+
+           try {
+            
+
+              for (var i=0; i < coords.length; i++) {
+              var valor=coords[i].split(",");
+                    var miFeature = new M.Feature(ids[i], {
+                        "type": "Feature",
+                        "geometry": {
+                        "type": "Point",
+                        "coordinates": [parseFloat(valor[0]),parseFloat(valor[1])
+                        ]
+                        }
+                    });
+                  capaGeoJSON.addFeatures(miFeature);
+                }                  
+            }catch (e) {}
+        }
+
+        function remarcarPoi(id) {
+            try {
+                let estiloRemarc = new M.style.Point({
+                            fill: {
+                            color: '#ea9a00',
+                            opacity: 0
+                            },
+                            stroke: {
+                            color: '#ff6000',
+                            width: 2
+                            },
+                            radius: 6
+                         
+            });
+                         
+                let estilo = new M.style.Point({
+                            fill: {
+                            color: '#30adff',
+                            opacity: 0
+                            },
+                            stroke: {
+                            color: '#4071c3',
+                            width: 2
+                            },
+                            radius: 6
+            });
+      
+                var idFeature = ids;
+                var feature = capaGeoJSON.getFeatures();
+ 
+                for (var i=0; i < idFeature.length; i++){
+                    if(idFeature[i]==id){
+                    feature[i].setStyle(estiloRemarc);
+                    }else{
+                    feature[i].setStyle(estilo);      
+                    }
+                }
+            }catch (e) {}
+		}            
+
+	// centers map to full extent
+	function fullExtent() {
+		if("no"=="ok" && pas=="0"){
+			var coordCercanos="";
+			var elemCoord=coordCercanos.split(","); 
+                        mapajs.setCenter({x:parseFloat(elemCoord[0]),y:parseFloat(elemCoord[1])});
+                        mapajs.setZoom(4);
+			
+			pas=1;   
+		}	
+	}
+
+        initEvents[initEvents.length] = loadMap;
+        
+        function traductor(){
+            if(entidadAbreviada!="0"){
+				if(document.getElementById('puede')!=null){
+					str1="Puede";
+					val=document.getElementById('puede');
+					str1+="&nbsp;";
+					val.innerHTML= str1;
+				}
+            }
+
+            value="descargar el resultado de la búsqueda";
+            target=document.getElementById('descarga');     
+            if(target!=null){
+                if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+                    var textNode=document.createTextNode(value);
+                    target.appendChild(textNode);
+                } else target.firstChild.nodeValue=value;
+                
+                str1="coincidencias. Mostrado del";
+                val1=document.getElementById('coincidencias');
+                if(val1!=null)val1.innerHTML= str1;
+            }
+           
+            value="Anterior";
+            target=document.getElementById('anterior');     
+            if(target!=null){
+                if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+                    var textNode=document.createTextNode(value);
+                    target.appendChild(textNode);
+                } else target.firstChild.nodeValue=value;
+            }
+            
+             value="Siguiente";
+            target=document.getElementById('siguiente');     
+            if(target!=null){
+                if (target.childNodes.length==0) {// node font sense el fill de tipus text.
+                    var textNode=document.createTextNode(value);
+                    target.appendChild(textNode);
+                } else target.firstChild.nodeValue=value;
+            }
+        }
+        
+        function Enviar()    {
+            var lang='esp'
+            window.location = 'buscador.jsp?lang='+lang+'&re=1';
+        }
+        
+        function Enviar1()    {
+            var lang='esp'
+            window.location = 'buscador.jsp?lang='+lang;
+        }
+
+		function volver(){
+            var lang='esp'
+            window.location = 'entidadConcreta.jsp?lang='+lang;
+		}
+        
+        function cargar(){
+            var aux='Modificar consulta'
+            var lang='esp';
+
+    
+            
+        }
+
+		/*window.onresize=funcion;
+		function funcion(){
+			  //  map.recalculateAbsolutePosition();
+		}*/
+		
+		function abrirForm(pare, opcion){
+			document.evalua1.opcion.value=opcion;	
+			document.evalua1.result.value=varresult;
+			document.evalua1.suma.value=varsuma;
+			document.evalua1.textB.value=vartextB;
+			document.evalua1.elementoSeleccionado.value=varelementoSeleccionado;
+			document.evalua1.envioEntidades.value=varenvioEntidades;
+			document.evalua1.seleccioProv.value=varseleccioProv;
+			document.evalua1.muniSeleccionado.value=varmuniSeleccionado;            
+			document.evalua1.campProvMuni.value=varcampProvMuni;
+			document.evalua1.campMapa.value=varcampMapa;            
+			document.evalua1.nombreProv.value=varnombreProv;
+			document.evalua1.nombreMuni.value=varnombreMuni;
+			document.evalua1.coord1.value=varcoord1;
+			document.evalua1.coord2.value=varcoord2;
+			document.evalua1.coord3.value=varcoord3;
+			document.evalua1.coord4.value=varcoord4;
+			document.evalua1.coordenada.value=varCoord;
+			document.evalua1.pare.value=pare;
+			document.evalua1.numeroElementos.value=varnumeroElementos;
+
+			parent.document.evalua1.submit();
+		}
+
+		var winPrototype=null;
+		function ampliarMapa(){
+
+			document.getElementById('myBody').style.overflow='hidden';
+			document.getElementById('myHTML').style.overflow='hidden';
+			window.scrollTo(0,0);
+
+			winPrototype= new Window({className: "nomenclator", width:0, height:0, zIndex: 1000, resizable: false, title: "", draggable:false, showEffect:Element.show, hideEffect:Element.hide, recenterAuto:true, wiredDrag: false});
+
+			var urlActual=this.location.toString();
+			var arraySepararUrl = urlActual.split("?");
+			var separarUrl = arraySepararUrl[1]
+			if(separarUrl=="undefined" || typeof(separarUrl)=='undefined')separarUrl='lang=esp"';
+			var urlIframe="ampliarMapaEnlace.jsp?"+separarUrl;
+
+			winPrototype.getContent().innerHTML = '<iframe name="mapaGrande" id="mapaGrande" class="iframeMG" scrolling="none" frameborder="0" src="'+urlIframe+'"><\/iframe>';//obj.innerHTML;
+
+			winPrototype.setLocation(0,0);
+			winPrototype.show();
+			winPrototype.setConstraint(true, {left:0, right:0, top: 10, bottom:10})
+			winPrototype.maximize();
+
+		}
+
+		window.onresize= reloadAmpliarMapa;
+		function reloadAmpliarMapa(){
+			if(winPrototype!=null) {
+
+				winPrototype.maximize();
+
+				var protW=winPrototype.width;
+				var protH=winPrototype.height;
+
+				if(window.frames["mapaGrande"].windowResizeMapaGran!="undefined" && typeof(window.frames["mapaGrande"].windowResizeMapaGran)!='undefined'){
+					window.frames["mapaGrande"].windowResizeMapaGran(protW,protH);
+				}
+			}
+		}
+         
+		function cargarBotonAmpliarMapa(){
+    		var divAmpliar = document.getElementById("ampliarMapa");
+    		var divPadre = document.getElementsByClassName("m-left");
+    		for(var i = 0; i < divPadre.length; i++){
+    		   if(divPadre.item(i).className.includes("m-top")){
+    			   divPadre.item(i).appendChild(divAmpliar);
+    			   divAmpliar.style.display = 'block';
+    	  		}
+    		}
+    	}
+		
+        setTimeout(function(){ dibuixaPois(); }, 1500);
+        setTimeout(function(){ fullExtent(); }, 1500);
+	//]]>
+	</script>
+	</head>
+
+	<body id="myBody" onload="javascript:cargar();onLoadEvents(initEvents);traductor();cargarBotonAmpliarMapa()">
+
+		<div id="header">
+			<div class="header">
+		<div class="subheader">
+			<img usemap="#MapTitular" alt="Instituto de EstadÃ­stica y CartografÃ­a de AndalucÃ­a" src="img/header-nomenclator.png" style="width: 1000px; height: 154px;"/>
+			<map name="MapTitular" id="MapTitular">
+				<area shape="rect" coords="13,10,90,80" href="https://www.juntadeandalucia.es" title="Junta de Andaluc&iacute;a" alt="Junta de Andaluc&iacute;a" />
+				<area shape="rect" coords="110,29,650,74" href="https://www.juntadeandalucia.es/institutodeestadisticaycartografia" title="Instituto de Estadï¿½stica y Cartografï¿½a de Andalucï¿½a" alt="Instituto de Estadï¿½stica y Cartografï¿½a de Andalucï¿½a" />
+			</map>
+	
+			<div class="toolbar">				
+			</div>
+			
+			<div class="search">
+			</div>
+			
+			<div class="inicio">			
+			</div>
+		</div>
+	</div>
+
+		</div>
+			
+		<div id="toolbar">
+			<!--<div id="path">
+	<a class="path" title="inicio" href="www/jsp/bienve.jsp">Inicio</a> »
+	<a title="nombres geogr&aacute;ficos" href="www/jsp/tema.jsp?pma=3&amp;ct=8">Cartograf&iacute;a</a> »
+	Nombres geogr&aacute;ficos
+</div>
+<div id="quicklinks">
+	<a title="Aviso legal" target="_self" href="www/jsp/estatica.jsp?e=misc/aviso_legal.html">aviso legal</a>
+	-
+	<a title="Mejore nuestra web" target="_self" href="www/jsp/buzonSugerencia.jsp">mejore nuestra web</a>
+	-
+	<a title="Mapa web" target="_self" href="www/jsp/estatica.jsp?e=misc/mapaweb.html">mapa web</a>
+	-
+	<a title="accesibilidad" href="www/jsp/estatica.jsp?e=misc/accesibilidad.html">accesibilidad</a>
+	-
+	<a title="requisitos" href="www/jsp/estatica.jsp?e=misc/requisitos_tecnicos.html">requisitos</a>
+</div>-->
+		</div>
+
+		<form name="evalua" action="entidadConcreta.jsp?lang=esp&amp;coordenada="  method="post" >			
+			<div id="wrapper-main-full" >
+				<div id="content-full2" >
+				<h1 style="display: flex; justify-content: space-between; align-items: center;">
+					<span>Buscador de nombres geográficos</span>
+					<span>v.4.0.0
+</span>
+				</h1>
+					<h2>Datos de búsqueda:</h2>
+					<script xmlns="http://www.opengis.net/wfs-g" type="text/javascript">
+	var entidadAbreviada="215";
+	</script>Nombre de entidad:  Contiene  <span xmlns="http://www.opengis.net/wfs-g" class="textBold ">"granada"</span>
+<div xmlns="http://www.opengis.net/wfs-g">
+<span id="puede">Puede:</span>
+<a onclick="javascript:sesion1();" href="#" id="descarga" onmouseover="javascript:this.style.textDecoration='none';" onmouseout="javascript:this.style.textDecoration='underline';" title="Descarga de la b&uacute;squeda" class="enlace">descargar el resultado de la b&uacute;squeda</a>
+</div>
+<script xmlns="http://www.opengis.net/wfs-g" type="text/javascript">
+
+			var varCoord="";  
+
+			var varresult		="";
+			var varsuma		="0";
+			var vartextB		="granada";
+			var varelementoSeleccionado="3";
+			var varenvioEntidades	="-1,";
+			var varseleccioProv	="0";
+			var varmuniSeleccionado	="0";            
+			var varcampProvMuni	="1";
+			var varcampMapa		="0";            
+			var varnombreProv	="";
+			var varnombreMuni	="";
+			var varcoord1		="0";
+			var varcoord2		="0";
+			var varcoord3		="0";
+			var varcoord4		="0";
+			var varnumeroElementos	="215";
+
+			function sesion1(val){
+			    parent.document.evalua1.opcion.value='2';
+			    parent.document.evalua1.result.value="";
+			    parent.document.evalua1.suma.value="0";
+			    parent.document.evalua1.textB.value="granada";
+			    parent.document.evalua1.elementoSeleccionado.value="3";
+			    parent.document.evalua1.envioEntidades.value="-1,";
+			    parent.document.evalua1.seleccioProv.value="0";
+			    parent.document.evalua1.muniSeleccionado.value="0";            
+			    parent.document.evalua1.campProvMuni.value="1";
+			    parent.document.evalua1.campMapa.value="0";            
+			    parent.document.evalua1.nombreProv.value="";
+			    parent.document.evalua1.nombreMuni.value="";
+			    parent.document.evalua1.coord1.value="0";
+			    parent.document.evalua1.coord2.value="0";
+			    parent.document.evalua1.coord3.value="0";
+			    parent.document.evalua1.coord4.value="0";
+			    parent.document.evalua1.coordenada.value="";
+			    parent.document.evalua1.numeroElementos.value="215";
+			    parent.document.evalua1.submit();
+			}
+
+		    var total="215";
+		    var pagFinal="10";
+		    var pagInicial="1";
+
+		    function sesion(val){
+			parent.document.evalua.entidad.value=val;
+			parent.document.evalua.submit();
+		    }
+
+		</script>
+<div xmlns="http://www.opengis.net/wfs-g" class="aliniacionDerecha">Resultado de la b&uacute;squeda</div>
+<table xmlns="http://www.opengis.net/wfs-g" class="m1" cellspacing="0" cellpadding="0" width="100%" summary="Resultados de la b&uacute;squeda">
+<caption>Resultados de la b&uacute;squeda</caption>
+<colgroup>
+<col/>
+<col/>
+</colgroup>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.1151&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('418681.09,4144911.43', 'Abrevadero Fuente de Granada','ES.ES61.NGA.1151');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.1151');" href="#" title="Nombre Entidad" class="enlace">Abrevadero Fuente de Granada</a>
+</td>
+<td>Obra Hidr&aacute;ulica</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.170822&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('431040.67,4115826.96', 'Aeropuerto Federico Garc&iacute;a Lorca Granada-Ja&eacute;n','ES.ES61.NGA.170822');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.170822');" href="#" title="Nombre Entidad" class="enlace">Aeropuerto Federico Garc&iacute;a Lorca Granada-Ja&eacute;n</a>
+</td>
+<td>Transporte</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.224090&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('412121.07,4095673.02', 'Alcazaba de Alhama de Granada','ES.ES61.NGA.224090');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.224090');" href="#" title="Nombre Entidad" class="enlace">Alcazaba de Alhama de Granada</a>
+</td>
+<td>Patrimonio Cultural</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.56057&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('411971,4095845', 'Alhama de Granada','ES.ES61.NGA.56057');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.56057');" href="#" title="Nombre Entidad" class="enlace">Alhama de Granada</a>
+</td>
+<td>Capital de Municipio</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.208621&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('410881.56,4093652.11', 'Alhama de Granada','ES.ES61.NGA.208621');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.208621');" href="#" title="Nombre Entidad" class="enlace">Alhama de Granada</a>
+</td>
+<td>Entidad Singular INE</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.56202&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('412885.69,4097641.68', 'Alhama de Granada','ES.ES61.NGA.56202');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.56202');" href="#" title="Nombre Entidad" class="enlace">Alhama de Granada</a>
+</td>
+<td>Municipio</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.222964&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('446849.99,4114580.04', 'Aljibe de la Mezquita Mayor de Granada','ES.ES61.NGA.222964');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.222964');" href="#" title="Nombre Entidad" class="enlace">Aljibe de la Mezquita Mayor de Granada</a>
+</td>
+<td>Obra Hidr&aacute;ulica</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.62430&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('453511.34,4068248.69', 'Almedrale de Granada','ES.ES61.NGA.62430');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.62430');" href="#" title="Nombre Entidad" class="enlace">Almedrale de Granada</a>
+</td>
+<td>Lugar / Paraje</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.89152&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('217077.14,4167803.26', 'Arroyo Aguagranada','ES.ES61.NGA.89152');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.89152');" href="#" title="Nombre Entidad" class="enlace">Arroyo Aguagranada</a>
+</td>
+<td>Curso Fluvial</td>
+</tr>
+<tr onmouseover="javascript: this.style.backgroundColor=&quot;#E0F0F4&quot;; remarcarPoi(&quot;ES.ES61.NGA.175&quot;);" onmouseout="javascript: this.style.backgroundColor=&quot;#FFFFFF&quot;;" class="infoListado">
+<td>
+<script type="text/javascript">
+						initEvents[initEvents.length] = function() {
+							cargaPoi('406483.47,4140112.85', 'Arroyo de Granada','ES.ES61.NGA.175');
+						};                         
+					</script>
+<a onclick="javascript: sesion('ES.ES61.NGA.175');" href="#" title="Nombre Entidad" class="enlace">Arroyo de Granada</a>
+</td>
+<td>Curso Fluvial</td>
+</tr>
+</tbody>
+</table>
+<script xmlns="http://www.opengis.net/wfs-g" type="text/javascript">
+		initEvents[initEvents.length] = function() {
+			
+		}
+	</script>
+<div xmlns="http://www.opengis.net/wfs-g" class="saltoLinia">
+<div id="indice">
+		    &nbsp;Encontradas&nbsp;215&nbsp;coincidencias. Mostrado del
+				&nbsp;1&nbsp;al&nbsp;10<span class="marginPaginacion">
+<a class="a1" title="Primera" id="inicio">&lt;&lt;</a> - 
+					<a class="a1" title="Anterior" id="anterior">Anterior</a>                       
+				-                
+
+				<a href="enlace.jsp?proviene=2&amp;inicial=1&amp;final=10&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a1">1</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=11&amp;final=20&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">2</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=21&amp;final=30&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">3</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=31&amp;final=40&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">4</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=41&amp;final=50&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">5</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=51&amp;final=60&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">6</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=61&amp;final=70&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">7</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=71&amp;final=80&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">8</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=81&amp;final=90&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">9</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=91&amp;final=100&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" title="Ir a la p&aacute;gina" class="a0">10</a>
+		 -
+        <a href="enlace.jsp?proviene=2&amp;inicial=11&amp;final=20&amp;result=&amp;suma=0&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" id="siguiente" title="Siguiente" class="a0">Siguiente</a> - 
+					<a href="enlace.jsp?proviene=2&amp;inicial=211&amp;final=220&amp;result=&amp;suma=20&amp;textB=granada&amp;elementoSeleccionado=3&amp;envioEntidades=-1%2C&amp;seleccioProv=0&amp;muniSeleccionado=0&amp;campProvMuni=1&amp;campMapa=0&amp;nombreProv=&amp;nombreMuni=&amp;coord1=0&amp;coord2=0&amp;coord3=0&amp;coord4=0&amp;coordenada=&amp;lang=esp" id="fin" title="&Uacute;ltima" class="a0">&gt;&gt;</a>
+</span>
+</div>
+</div>
+
+					<br/>
+
+					<div class="espacioIzqMapaEnlace">
+						<div id="maximizeDiv" class="campo">
+                           	<div id="mapea" class="mapaBusquedaEnlace"></div> 
+                           	<div id="ampliarMapa" class="m-panel m-tools opened no-collapsible" style="display: none">   
+								<div class="m-panel-controls">
+	   								<div class="m-control">    								
+	    								<button id="ampliar-button" type="button" class="g-cartografia-tamano" title="Ampliar Mapa" onclick="javascript: ampliarMapa();"></button>
+	    							</div>
+								</div>
+							</div>       
+						</div>
+					</div>
+
+					<input type="hidden" value="0" name="entidad"/>
+					<br/>
+					<div class="fila">	
+						<div class="campo pag-completa">
+							<fieldset>
+								<input type='button' class='button' onclick='Enviar()' value='Modificar consulta' name='busqueda'/>&nbsp; <input type='button' class='button' onclick='Enviar1()' value='Nueva consulta' name='busqueda'/> 
+							</fieldset> 
+						</div>
+					</div>
+
+					<div class="fila">
+						<div class="campo pag-completa aliniacionCentro">
+							<a class="descargable" title="Ayuda" target="_self" href="metadatos/Ayuda.pdf">
+								Ayuda
+							</a>&nbsp;-
+							<a class="descargable" title="Metadatos" target="_self" href="metadatos/Metadatos.pdf">
+								Metadatos
+							</a>&nbsp;-
+							<a class="descargable" title="Catálogo de Entidades" target="_self" href="metadatos/Catalogo.pdf">
+								Catálogo de Entidades
+							</a>&nbsp;- 
+							<a class="link1" title="Rectificar topónimos" href="#" onclick="abrirForm(1,1);">
+								Rectificar topónimos 
+							</a>&nbsp;-
+							<a class="link1" title="Correo / Sugerencias" href="#" onclick="abrirForm(1,0);">
+								Correo / Sugerencias
+							</a>
+						</div>
+					</div>
+					<div id="fila">
+						<div class="campo pag-completa">
+							<div class="footer-full-Modif" id="navHorizontalContainer">
+<div class="footer">
+	<div id="footer-full_IECA" style="height: 30px; margin: 15px auto 0; text-align: justify; width: 255px;" >
+		<a href="https://www.juntadeandalucia.es/institutodeestadisticaycartografia">Instituto de Estad&iacute;stica y Cartograf&iacute;a de Andaluc&iacute;a</a>
+		<!-- Eliminados IECA--> 
+		<!--
+		<a href="www/jsp/estatica.jsp?e=misc/accesibilidad.html">Accesibilidad</a> &nbsp;|&nbsp; 
+		<a href="www/jsp/estatica.jsp?e=misc/requisitos_tecnicos.html">Requisitos</a>
+		-->
+		<!--footer-->
+	</div>
+</div>
+
+</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<form name="evalua1" action="form.jsp?lang=esp"  method="post" >
+			<div>
+				<input type="hidden" value="0" name="opcion"/>
+				<input type="hidden" value="1" name="pare"/>
+				<input type="hidden" value="0" name="result"/>
+				<input type="hidden" value="0" name="suma"/>
+				<input type="hidden" value="0" name="textB"/>
+				<input type="hidden" value="0" name="elementoSeleccionado"/>
+				<input type="hidden" value="0" name="envioEntidades"/>
+				<input type="hidden" value="0" name="seleccioProv"/>
+				<input type="hidden" value="0" name="muniSeleccionado"/>
+				<input type="hidden" value="0" name="nombreMuni"/>
+				<input type="hidden" value="0" name="envioMunicipios"/>
+				<input type="hidden" value="0" name="campProvMuni"/>
+				<input type="hidden" value="0" name="campMapa"/>
+				<input type="hidden" value="0" name="nombreProv"/>
+				<input type="hidden" value="0" name="coord1"/>
+				<input type="hidden" value="0" name="coord2"/>
+				<input type="hidden" value="0" name="coord3"/>
+				<input type="hidden" value="0" name="coord4"/>
+				<input type="hidden" value="0" name="coordenada"/>
+				<input type="hidden" value="0" name="numeroElementos"/>
+			</div>
+		</form>
+    
+  <!-- Google Analytics 4 -->
+  <script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-66XBYF7056"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-66XBYF7056');
+  </script>
+
+    </body>
+</html>
+
