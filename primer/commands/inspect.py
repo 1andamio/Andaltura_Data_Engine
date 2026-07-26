@@ -8,6 +8,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from primer.printers.entity_printer import EntityPrinter
+from primer.printers.summary_printer import SummaryPrinter
+from primer.printers.tree_printer import TreePrinter
 from primer.readers.xml_reader import XMLReader
 
 
@@ -16,23 +19,18 @@ def inspect_command(filename: str | Path) -> None:
     Inspecciona un documento XML.
     """
 
+    # Leer el documento y construir el modelo
     reader = XMLReader()
-
     model = reader.read(filename)
 
-    summary = model.stats()
-
+    # Mostrar resumen
     print()
-    print("Primer XML Inspector")
-    print("-" * 40)
+    print(SummaryPrinter().render(model, filename))
 
-    print(f"Documento     : {Path(filename).name}")
-    print(f"Nodos         : {summary['nodes']}")
-    print(f"Atributos     : {summary['attributes']}")
-    print(f"Namespaces    : {summary['namespaces']}")
-    print(f"Profundidad   : {summary['max_depth']}")
+    # Mostrar árbol
+    print()
+    print(TreePrinter().render(model))
 
-    if model.root:
-        print(f"Nodo raíz     : {model.root.name}")
-
-    print("-" * 40)
+    # Mostrar entidades descubiertas
+    print()
+    print(EntityPrinter().render(model))

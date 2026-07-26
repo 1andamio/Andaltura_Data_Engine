@@ -1,8 +1,7 @@
 """
-Impresión del árbol de un Model.
+Tree Printer
 
-Convierte el modelo interno de Primer en una representación
-jerárquica fácilmente legible.
+Genera una representación ASCII de un Model.
 """
 
 from __future__ import annotations
@@ -12,8 +11,10 @@ from primer.core.model import Model, Node
 
 class TreePrinter:
     """
-    Imprime un árbol jerárquico a partir de un Model.
+    Genera un árbol ASCII a partir de un Model.
     """
+
+    # ---------------------------------------------------------
 
     def render(self, model: Model) -> str:
         """
@@ -23,11 +24,12 @@ class TreePrinter:
         root = model.root
 
         if root is None:
-            return "<modelo vacío>"
+            return "<empty model>"
 
         lines: list[str] = []
 
         self._render_node(
+            model=model,
             node=root,
             prefix="",
             is_last=True,
@@ -36,40 +38,38 @@ class TreePrinter:
 
         return "\n".join(lines)
 
-    # ------------------------------------------------------------
+    # ---------------------------------------------------------
 
     def _render_node(
         self,
         *,
+        model: Model,
         node: Node,
         prefix: str,
         is_last: bool,
         lines: list[str],
     ) -> None:
 
-        if prefix == "":
+        connector = "└── " if is_last else "├── "
+
+        if node.is_root:
             lines.append(node.name)
         else:
-            branch = "└── " if is_last else "├── "
-            lines.append(prefix + branch + node.name)
+            lines.append(f"{prefix}{connector}{node.name}")
 
-        children = sorted(
-            node.children.values(),
-            key=lambda n: n.name.lower(),
-        )
+        children = model.children(node)
 
-        if prefix == "":
-            next_prefix = ""
+        if node.is_root:
+            child_prefix = ""
         else:
-            next_prefix = prefix + ("    " if is_last else "│   ")
-
-        total = len(children)
+            child_prefix = prefix + ("    " if is_last else "│   ")
 
         for index, child in enumerate(children):
 
             self._render_node(
+                model=model,
                 node=child,
-                prefix=next_prefix,
-                is_last=index == total - 1,
+                prefix=child_prefix,
+                is_last=index == len(children) - 1,
                 lines=lines,
             )
