@@ -1,127 +1,39 @@
 """
-Parser GML para servicios WFS.
-
-Este módulo transforma respuestas GML (INSPIRE/WFS) en estructuras
-Python fáciles de consumir.
-
-Actualmente implementa el parser para gn:NamedPlace.
+Parser genérico para respuestas WFS/GML.
 """
 
 from __future__ import annotations
 
+from collections.abc import Iterator
 from xml.etree import ElementTree as ET
 
 
-NS = {
-    "wfs": "http://www.opengis.net/wfs/2.0",
-    "gml": "http://www.opengis.net/gml/3.2",
-    "gn": "urn:x-inspire:specification:gmlas:GeographicalNames:3.0",
-    "base": "urn:x-inspire:specification:gmlas:BaseTypes:3.2",
-}
-
-
-class GMLParser:
+class WFSParser:
     """
-    Parser para respuestas GML de servicios WFS.
+    Parser genérico para FeatureCollection.
     """
 
-    def parse_named_places(self, xml: str) -> list[dict]:
-        """
-        Convierte una respuesta GetFeature en una lista de entidades.
+    NS = {
+        "wfs": "http://www.opengis.net/wfs/2.0",
+    }
 
-        Parameters
-        ----------
-        xml:
-            Documento XML/GML.
+    def parse(self, xml: str | bytes) -> ET.Element:
 
-        Returns
-        -------
-        list[dict]
-        """
+        if isinstance(xml, bytes):
+            xml = xml.decode("utf-8")
 
-        root = ET.fromstring(xml)
+        return ET.fromstring(xml)
 
-        results: list[dict] = []
+    def iter_features(self, xml: str | bytes) -> Iterator[ET.Element]:
 
-        for member in root.findall("wfs:member", NS):
+        root = self.parse(xml)
 
-            feature = member.find("gn:NamedPlace", NS)
+        for member in root.findall(".//wfs:member", self.NS):
 
-            if feature is None:
-                continue
+            if len(member):
 
-            gml_id = feature.attrib.get(
-                "{http://www.opengis.net/gml/3.2}id"
-            )
+                yield member[0]
 
-            local_id = self._text(
-                feature,
-                "gn:inspireId/base:Identifier/base:localId",
-            )
+    def count_features(self, xml: str | bytes) -> int:
 
-            namespace = self._text(
-                feature,
-                "gn:inspireId/base:Identifier/base:namespace",
-            )
-
-            name = self._text(
-                feature,
-                "gn:name/gn:GeographicalName/"
-                "gn:spelling/gn:SpellingOfName/"
-                "gn:text",
-            )
-
-            feature_type = self._text(
-                feature,
-                "gn:type",
-            )
-
-            pos = self._text(
-                feature,
-                "gn:geometry/gml:Point/gml:pos",
-            )
-
-            x = None
-            y = None
-
-            if pos:
-                values = pos.split()
-
-                if len(values) == 2:
-
-                    try:
-                        x = float(values[0])
-                        y = float(values[1])
-
-                    except ValueError:
-                        pass
-
-            results.append(
-                {
-                    "gml_id": gml_id,
-                    "local_id": local_id,
-                    "namespace": namespace,
-                    "name": name,
-                    "feature_type": feature_type,
-                    "x": x,
-                    "y": y,
-                }
-            )
-
-        return results
-
-    @staticmethod
-    def _text(
-        element: ET.Element,
-        xpath: str,
-    ) -> str | None:
-
-        node = element.find(xpath, NS)
-
-        if node is None:
-            return None
-
-        if node.text is None:
-            return None
-
-        return node.text.strip()
+        return sum(1 for _ in self.iter_features(xml))
