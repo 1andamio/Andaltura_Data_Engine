@@ -1,15 +1,14 @@
 """
 Construye el catálogo local del Nomenclátor Geográfico de Andalucía.
 
-El programa:
+Versión de diagnóstico.
 
-- Descarga páginas del WFS.
-- Analiza el GML.
-- Inserta las entidades en SQLite.
-- Continúa hasta que no haya más registros.
+Comprueba:
 
-Puede interrumpirse en cualquier momento.
-Los registros ya almacenados permanecen en la base de datos.
+- Entidades recibidas.
+- Entidades insertadas.
+- Primer y último localId.
+- Repetición de páginas.
 """
 
 from __future__ import annotations
@@ -48,7 +47,7 @@ def main() -> None:
 
     print()
     print("=" * 80)
-    print("CONSTRUCCIÓN DEL CATÁLOGO")
+    print("CONSTRUCCIÓN DEL CATÁLOGO (MODO DIAGNÓSTICO)")
     print("=" * 80)
     print()
 
@@ -61,9 +60,14 @@ def main() -> None:
 
     started = time.perf_counter()
 
+    # Para detectar páginas repetidas
+    paginas_vistas = set()
+
     while True:
 
-        print(f"Descargando página desde {start_index}...")
+        print()
+        print("-" * 80)
+        print(f"Descargando página desde startIndex = {start_index}")
 
         response = client.get_feature(
             type_name=TYPE_NAME,
@@ -75,22 +79,61 @@ def main() -> None:
 
         features = parser.parse_named_places(xml)
 
+        print(f"Entidades recibidas del WFS : {len(features)}")
+
         if not features:
 
             print()
             print("No quedan más registros.")
             break
 
+        primer_id = features[0]["local_id"]
+        ultimo_id = features[-1]["local_id"]
+
+        print(f"Primer localId             : {primer_id}")
+        print(f"Último localId             : {ultimo_id}")
+
+        firma = (primer_id, ultimo_id)
+
+        if firma in paginas_vistas:
+
+            print()
+            print("=" * 80)
+            print("¡¡¡ PÁGINA REPETIDA DETECTADA !!!")
+            print("=" * 80)
+            print()
+            print("El WFS ha devuelto exactamente el mismo rango de entidades.")
+            print(f"Primer localId : {primer_id}")
+            print(f"Último localId : {ultimo_id}")
+            print()
+            print("La descarga se detiene para evitar un bucle infinito.")
+            break
+
+        paginas_vistas.add(firma)
+
         inserted = database.insert_many(features)
+
+        print(f"Entidades insertadas SQLite : {inserted}")
+
+        if inserted != len(features):
+
+            print()
+            print("=" * 80)
+            print("¡¡¡ DIFERENCIA DETECTADA !!!")
+            print("=" * 80)
+            print(f"Recibidas : {len(features)}")
+            print(f"Insertadas: {inserted}")
+            print()
 
         total_inserted += inserted
 
         start_index += inserted
 
+        print(f"Siguiente startIndex        : {start_index}")
+
         elapsed = time.perf_counter() - started
 
         print(
-            f"Insertados: {inserted:5d} | "
             f"Total BD: {database.count():6d} | "
             f"Tiempo: {elapsed:8.1f} s"
         )
