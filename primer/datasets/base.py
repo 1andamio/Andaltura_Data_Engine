@@ -5,58 +5,59 @@ Clase base para todos los datasets del motor.
 from __future__ import annotations
 
 from collections.abc import Iterable, Iterator
-from typing import Generic, TypeVar
+from typing import TYPE_CHECKING, Generic, TypeVar
 
-from primer.query.expression import Expression
-from primer.query.order import OrderBy
+if TYPE_CHECKING:
+    from primer.query.query import Query
 
 T = TypeVar("T")
 
 
 class BaseDataset(Generic[T]):
-    """
-    Colección genérica de entidades.
-    """
 
-    def __init__(self, items: Iterable[T] | None = None) -> None:
-        self._items: list[T] = list(items) if items else []
+    def __init__(self, items: Iterable[T] | None = None):
+        self._items = list(items) if items else []
 
-    def add(self, item: T) -> None:
+    def query(self) -> "Query[T]":
+        """
+        Inicia una consulta.
+        """
+        # Importación diferida para evitar dependencias circulares.
+        from primer.query.query import Query
+
+        return Query(self)
+
+    # ---------------------------------------------------------
+    # Compatibilidad (se eliminará en v2)
+    # ---------------------------------------------------------
+
+    def where(self, expression):
+        return self.query().where(expression).all()
+
+    def order_by(self, order):
+        return self.query().order_by(order).all()
+
+    # ---------------------------------------------------------
+
+    def add(self, item: T):
         self._items.append(item)
 
-    def extend(self, items: Iterable[T]) -> None:
+    def extend(self, items):
         self._items.extend(items)
 
-    def clear(self) -> None:
+    def clear(self):
         self._items.clear()
 
-    def first(self) -> T | None:
+    def first(self):
         return self._items[0] if self._items else None
 
-    def last(self) -> T | None:
+    def last(self):
         return self._items[-1] if self._items else None
 
-    def where(self, expression: Expression[T]) -> "BaseDataset[T]":
-        return self.__class__(
-            item for item in self._items if expression(item)
-        )
-
-    def order_by(self, order: OrderBy) -> "BaseDataset[T]":
-        """
-        Devuelve un nuevo dataset ordenado.
-        """
-        return self.__class__(
-            sorted(
-                self._items,
-                key=order.key,
-                reverse=not order.ascending,
-            )
-        )
-
-    def to_list(self) -> list[T]:
+    def to_list(self):
         return list(self._items)
 
-    def __len__(self) -> int:
+    def __len__(self):
         return len(self._items)
 
     def __iter__(self) -> Iterator[T]:
@@ -65,8 +66,8 @@ class BaseDataset(Generic[T]):
     def __getitem__(self, index):
         return self._items[index]
 
-    def __bool__(self) -> bool:
+    def __bool__(self):
         return bool(self._items)
 
-    def __repr__(self) -> str:
+    def __repr__(self):
         return f"{self.__class__.__name__}(items={len(self)})"
